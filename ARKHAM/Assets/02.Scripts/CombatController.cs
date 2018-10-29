@@ -31,13 +31,13 @@ public class CombatController : MonoBehaviour {
 
     public void EvasionCheck()
     {
-        Debug.Log("EvasionCheck : " + character.characterEvadeCheck + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
+        Debug.Log("EvasionCheck : " + character.CharacterEvadeCheck + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
 
         CombatUI.instance.CombatUIActive(false);
 
         //character.EvasionCheck(monster.evasionLevel);
 
-        DiceController.instance.SetDice(character.characterEvadeCheck + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
+        DiceController.instance.SetDice(character.CharacterEvadeCheck + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
     public void EvasionCheckResult(int successCount)

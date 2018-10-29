@@ -19,7 +19,7 @@ public class weapon_18Derringer : ItemCard {
         {
             if (!useCheck)
             {
-                Character.instance.PhysicalCombat += 2;
+                Character.instance.powerOfWeapon += 2;
                 useCheck = true;
                 Character.instance.nowHand += hand;
                 
@@ -27,7 +27,7 @@ public class weapon_18Derringer : ItemCard {
 
             else
             {
-                Character.instance.PhysicalCombat -= 2;
+                Character.instance.powerOfWeapon -= 2;
                 useCheck = false;
                 Character.instance.nowHand -= hand;
             }

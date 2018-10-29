@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterPhysicalCombat : MonoBehaviour {
+public class CharacterpowerOfWeapon : MonoBehaviour {
 
-    private Text PhysicalCombat;
+    private Text powerOfWeapon;
     void Start () {
-        PhysicalCombat = GetComponent<Text>();
-        PhysicalCombat.text = Character.instance.characterPhysicalCombat.ToString();
+        powerOfWeapon = GetComponent<Text>();
+        powerOfWeapon.text = Character.instance.CharacterpowerOfWeapon.ToString();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        PhysicalCombat.text = Character.instance.characterPhysicalCombat.ToString();
+        powerOfWeapon.text = Character.instance.CharacterpowerOfWeapon.ToString();
     }
 }

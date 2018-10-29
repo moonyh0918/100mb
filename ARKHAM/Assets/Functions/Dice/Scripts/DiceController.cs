@@ -61,7 +61,11 @@ public class DiceController : MonoBehaviour
 
         // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
         if (diceCount <= 0)
+        {
+            CallResultFunction();
             return;
+        }
+
 
         for (int i = 0; i < diceCount; i++)
         {
@@ -97,6 +101,7 @@ public class DiceController : MonoBehaviour
             ActiveAdditoryDice();
             return;
         }
+
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));

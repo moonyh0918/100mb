@@ -16,7 +16,7 @@ public class weapon_TommyGun : ItemCard {
         {
             if (!useCheck)
             {
-                Character.instance.PhysicalCombat += 6;
+                Character.instance.powerOfWeapon += 6;
                 useCheck = true;
                 Character.instance.nowHand += hand;
 
@@ -24,7 +24,7 @@ public class weapon_TommyGun : ItemCard {
 
             else
             {
-                Character.instance.PhysicalCombat -= 6;
+                Character.instance.powerOfWeapon -= 6;
                 useCheck = false;
                 Character.instance.nowHand -= hand;
             }

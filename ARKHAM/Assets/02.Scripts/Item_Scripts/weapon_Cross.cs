@@ -17,16 +17,16 @@ public class weapon_Cross : ItemCard {
         {
             if (!useCheck)
             {
-                Character.instance.PhysicalCombat += 0;
-                Character.instance.MagicalCombat += 1;
+                Character.instance.powerOfWeapon += 0;
+                Character.instance.powerOfMagic += 1;
                 useCheck = true;
                 Character.instance.nowHand += hand;
             }
 
             else
             {
-                Character.instance.PhysicalCombat -= 0;
-                Character.instance.MagicalCombat -= 1;
+                Character.instance.powerOfWeapon -= 0;
+                Character.instance.powerOfMagic -= 1;
                 useCheck = false;
                 Character.instance.nowHand -= hand;
             }

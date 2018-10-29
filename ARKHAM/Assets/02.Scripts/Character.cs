@@ -62,9 +62,9 @@ public class Character : MonoBehaviour
 
     //전투 관련 변수 
     public int powerOfWeapon;  //무기공격력(한손x2 or 양손)
-    public int CharacterPhysicalCombat { get { return powerOfWeapon; } set { powerOfWeapon = value; } }
+    public int CharacterpowerOfWeapon { get { return powerOfWeapon; } set { powerOfWeapon = value; } }
     public int powerOfMagic;   //마법공격력
-    public int CharacterMagicalCombat { get { return powerOfMagic; } set { powerOfMagic = value; } }
+    public int CharacterpowerOfMagic { get { return powerOfMagic; } set { powerOfMagic = value; } }
     public int evade;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
     public int CharacterEvadeCheck { get { return evade + Sneak; } set { evade = value; } }
     public int characterHorrorCheck;    //공포체크(의지+공포체크)
