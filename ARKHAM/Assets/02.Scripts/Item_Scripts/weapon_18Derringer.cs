@@ -14,6 +14,7 @@ public class weapon_18Derringer : ItemCard {
 
     public override void ItemFuntion()
     {
+
         if (Character.instance.nowHand + hand < 3)
         {
             if (!useCheck)
@@ -31,6 +32,6 @@ public class weapon_18Derringer : ItemCard {
                 Character.instance.nowHand -= hand;
             }
         }
-        
+
     }
 }
