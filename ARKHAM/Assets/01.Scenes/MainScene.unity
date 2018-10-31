@@ -8601,11 +8601,12 @@ MonoBehaviour:
   moneypanel: {fileID: 1710575991}
   tokenpanel1: {fileID: 677428725}
   tokenpanel2: {fileID: 401145564}
-  BlessPanel: {fileID: 0}
-  onMoneyPanel: {fileID: 0}
-  succPanel: {fileID: 0}
-  failePanel: {fileID: 0}
-  CursePanel: {fileID: 0}
+  BlessPanel: {fileID: 1311291090927456, guid: 387c46c33598cca4fbb6dd9e5460383c, type: 2}
+  onMoneyPanel: {fileID: 1090154488440382, guid: 3af359a13082aa6408595c6d3cd55f2e,
+    type: 2}
+  succPanel: {fileID: 1784690122730962, guid: 189029999a4090b46a758a4e8237f23d, type: 2}
+  failePanel: {fileID: 1768427658928312, guid: d0c5e3f80f8397f4e9874d176d07e92e, type: 2}
+  CursePanel: {fileID: 1312042224804076, guid: fe5b5751ee40c9a4b8fb9298f9ebb008, type: 2}
   InventoryCard: {fileID: 224600483853709980, guid: 3100a3a5421beda4998fdd4ee2323cff,
     type: 2}
   cluetext: {fileID: 0}
@@ -14134,7 +14135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4216031735397884, guid: 805b4432e2128d945a767c0d9f503212, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 114978549634833812, guid: 805b4432e2128d945a767c0d9f503212,
         type: 2}
