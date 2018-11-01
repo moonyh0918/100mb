@@ -98,7 +98,7 @@ public class DiceController : MonoBehaviour
         // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
         if (diceCount <= 0)
         {
-            ActiveAdditoryDice();
+            CallResultFunction();
             return;
         }
 
@@ -173,17 +173,8 @@ public class DiceController : MonoBehaviour
         }
         valueCount++;
 
-        ActiveAdditoryDice();
-    }
-
-    void ActiveAdditoryDice()
-    {
-        // 추가 주사위가 아닐때
-        if (diceCount == valueCount && !AdditoryDiceValue)
+        if (valueCount == diceCount)
             CallResultFunction();
-        // 추가 주사위일 경우 EventResult를 다시 호출해 무한 반복되는것을 방지 
-        else if (AdditoryDiceValue)
-            DiceController.instance.AdditoryDiceValue = false;
     }
 
     void CallResultFunction()

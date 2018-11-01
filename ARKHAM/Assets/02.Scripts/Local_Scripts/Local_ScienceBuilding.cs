@@ -25,24 +25,13 @@ public class Local_ScienceBuilding : Local {
     }
 
 
-
-   
-
-
-
-
-
     protected override void EventOne()
     {
         activeEvent = 1;
 
         eventText = "분젠 버너 근처에서 화학물질이 거품을 내고 있습니다. 여기서 맛있는 냄새가 납니다. 이를 마시기로 하면 행운 체크(+0)를 합니다. 성공하면 이 수상한 액체가 신체에 활력을 불어넣습니다. 주사위 1개를 굴려 나온 값만큼 체력과 정신력을 원하는 대로 회복합니다. 실패하면 이 액체는 보통 커피입니다. 체력을 1 회복합니다.";
 
-
         DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck), Character.instance.MinDiceSucc, 6);
-
-        
-
     }
 
     protected override void EventTwo()
@@ -51,7 +40,6 @@ public class Local_ScienceBuilding : Local {
 
         eventText = "화학과 연구실에 들어가보니 한 교수가 공포에 질려 있었습니다. 그는 고대의 인공물을 잠겨 있던 책상 서랍에서 써내 들고는 이를 당신의 얼굴로 내밀었습니다. 그리고는 알 수 없는 몸동작과 함께 주문을 외웟습니다. 저주 받은 상태라면 저주를 제거합니다. 저주받은 상태가 아니라면 축복을 받습니다. ";
 
-        
         switch(Character.instance.MinDiceSucc)
         {
             case 4:
@@ -66,9 +54,6 @@ public class Local_ScienceBuilding : Local {
                 Debug.Log(Character.instance.MinDiceSucc + "확인요망");
                 break;
         }
-        
-       
-
     }
 
     protected override void EventThree()
@@ -108,17 +93,14 @@ public class Local_ScienceBuilding : Local {
 
         switch (activeEvent)
         {
+            case 0:
+                Character.instance.characterStamina += DiceController.instance.ResultDiceValue();
+                break;
             case 1:
                 if (successCount == 0)
                     Character.instance.characterStamina += 1;
                 else if (successCount > 0)
-                {
-                    DiceController.instance.AdditoryDiceValue = true;
-
                     DiceController.instance.SetDiceThrow(this, 1, 1, 6);
-
-                    Character.instance.characterStamina += DiceController.instance.ResultDiceValue();
-                }
                 break;
             case 2:
                 
@@ -128,9 +110,11 @@ public class Local_ScienceBuilding : Local {
                 {
                     Debug.Log("아이템 하나 삭제");
                 }
-                    
-                
+  
                 break;
         }
+
+        // activeEvent가 0일때  EventResult함수가 호출되었다면 이벤트로 발생하는 주사위가 아닌 이벤트 결과로 발생하는 추가주사위
+        activeEvent = 0;
     }
 }
