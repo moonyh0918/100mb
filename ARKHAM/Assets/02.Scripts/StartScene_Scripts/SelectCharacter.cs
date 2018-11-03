@@ -34,6 +34,8 @@ public class SelectCharacter : MonoBehaviour {
     //임시 스텟부여
     public void AmandaSharpe()
     {
+        Characterset.currentLocal_Id = 0;
+
         Characterset.characterSanity = 5;
         Characterset.MaxcharacterSanity = 5;
 
@@ -67,7 +69,8 @@ public class SelectCharacter : MonoBehaviour {
 
     public void AshcanPete()
     {
-        Debug.Log("AshcanPete");
+        Characterset.currentLocal_Id = 1;
+
         Characterset.characterSanity = 4;
         Characterset.MaxcharacterSanity = 4;
 
@@ -97,7 +100,8 @@ public class SelectCharacter : MonoBehaviour {
     }
     public void BobJenkins()
     {
-        Debug.Log("BobJenkins");
+        Characterset.currentLocal_Id = 2;
+
         Characterset.characterSanity = 4;
         Characterset.MaxcharacterSanity = 4;
 
