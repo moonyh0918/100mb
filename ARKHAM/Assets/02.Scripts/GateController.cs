@@ -52,7 +52,6 @@ public class GateController : MonoBehaviour {
 
     public void OpenGate(string openloacl)
     {
-        
         GameObject parent = GameObject.Find(openloacl);
         Local sealMarkCheck = parent.GetComponent<Local>();
 
@@ -62,18 +61,15 @@ public class GateController : MonoBehaviour {
         }
         else
         {
-            
-
-            Debug.Log(GateDeck[0].name);
-            Debug.Log(sealMarkCheck.ToString());
             if (!sealMarkCheck.gateOpenCheck)
             {
                 GameObject gateClone = Instantiate(GateDeck[0], parent.transform);
+                gateClone.transform.localPosition = new Vector3(0.16f, 0.12f, 2.0f);
 
                 Local otherWold = gateClone.GetComponent<Gate>().OpenLocal;
+
                 if(otherWold.allowLocal_Id[0]==0)
                     otherWold.allowLocal_Id[0] = parent.GetComponent<Local>().local_Id;
-                
                 else
                     otherWold.allowLocal_Id[1] = parent.GetComponent<Local>().local_Id;
 

@@ -24,6 +24,13 @@ public class Monster : MonoBehaviour {
     public List<SAttribute> sAttribute = new List<SAttribute>();
     public bool meetPlayer = false;
 
+    public static ShowMonsterInfo monsterInfoPanel;
+
+    private void Start()
+    {
+        monsterInfoPanel = FindObjectOfType<ShowMonsterInfo>();
+    }
+
     public Monster(string _name, int _hp, int _fearLevel, int _combatLevel, int _staminaDamage, int _sanityDamage, int _evasionLevel, Type _type, Simbol _simbol, List <SAttribute> _sAttribute)
     {
         id = _name;
@@ -63,6 +70,17 @@ public class Monster : MonoBehaviour {
         {
             sAttribute.Add(mon.sAttribute[i]);
         }
+    }
+
+    private void OnMouseEnter()
+    {
+        monsterInfoPanel.gameObject.SetActive(true);
+        monsterInfoPanel.UpdateInfoUI(this);
+    }
+
+    private void OnMouseExit()
+    {
+        monsterInfoPanel.gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)

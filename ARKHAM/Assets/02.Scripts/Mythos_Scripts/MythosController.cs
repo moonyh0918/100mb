@@ -46,31 +46,23 @@ public class MythosController : MonoBehaviour {
     //첫 단서 배치
     public void FistClue()
     {
+        CreateFirstClue("Woods");
+        CreateFirstClue("Historical_Society");
+        CreateFirstClue("Science_Building");
+        CreateFirstClue("Unvisited_Isle");
+        CreateFirstClue("The_Unnamable");
+        CreateFirstClue("Indefendence_Square");
+        CreateFirstClue("Hibb's_RoadHouse");
+        CreateFirstClue("GraveYard");
+        CreateFirstClue("Black_Cave");
+        CreateFirstClue("The_Wrrch_House");
+        CreateFirstClue("Silver_Twilight_Lodge");
+    }
 
-        clue = Instantiate(cluePrefab, GameObject.Find("Woods").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Historical_Society").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Science_Building").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Unvisited_Isle").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("The_Unnamable").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Indefendence_Square").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Hibb's_RoadHouse").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("GraveYard").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Black_Cave").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("The_Wrrch_House").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-        clue = Instantiate(cluePrefab, GameObject.Find("Silver_Twilight_Lodge").GetComponent<Transform>());
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
-
-
+    public void CreateFirstClue(string localName)
+    {
+        clue = Instantiate(cluePrefab, GameObject.Find(localName).GetComponent<Transform>());
+        clue.transform.localPosition = new Vector3(0.18f, 2.3f, 0.75f);
     }
 
 
@@ -93,7 +85,6 @@ public class MythosController : MonoBehaviour {
         eventCard.GetComponent<Animator>().SetBool("Flip", true);
 
         // 차원문 생성 
-
         GateController.instance.OpenGate(pulledMythos.gateLocal.name);
 
         // 몬스터 생성
@@ -101,7 +92,7 @@ public class MythosController : MonoBehaviour {
 
         // 단서 생성
         clue = Instantiate(cluePrefab, pulledMythos.clueLocal.transform);
-        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
+        clue.transform.localPosition = new Vector3(0.18f, 2.3f, 0.75f);
 
         // 몬스터 이동 
   

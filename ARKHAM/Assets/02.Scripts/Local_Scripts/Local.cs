@@ -27,14 +27,25 @@ public abstract class Local : MonoBehaviour {
 
     public bool gateOpenCheck = false;  //게이트 오픈여부
 
+    private static ShowLocalInfo localInfoPanel;
 
     void Awake()
     {
         locals = FindObjectsOfType<Local>();
-
-        character = GameObject.Find("character").GetComponent<Character>();
+        character = FindObjectOfType<Character>();
+        localInfoPanel = FindObjectOfType<ShowLocalInfo>();
     }
 
+    private void OnMouseEnter()
+    {
+        localInfoPanel.gameObject.SetActive(true);
+        localInfoPanel.UpdateInfoUI(this);
+    }
+
+    private void OnMouseExit()
+    {
+        localInfoPanel.gameObject.SetActive(false);
+    }
 
     private void OnMouseDown()
     {

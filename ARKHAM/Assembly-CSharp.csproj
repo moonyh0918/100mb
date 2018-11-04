@@ -171,12 +171,15 @@
     <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MovePointPop.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\ShowLocalInfo.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\ShowMonsterInfo.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />
     <Compile Include="Assets\BossAattackEvasion.cs" />
     <Compile Include="Assets\CharacterBasic.cs" />
     <Compile Include="Assets\CharacterMagicalCombat.cs" />
     <Compile Include="Assets\CharacterPhysicalCombat.cs" />
     <Compile Include="Assets\CharacterTotalCombat.cs" />
+    <Compile Include="Assets\ClueRotate.cs" />
     <Compile Include="Assets\Functions\AnotherWorld\Scripts\RotationGate.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\Dice.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\DiceController.cs" />
