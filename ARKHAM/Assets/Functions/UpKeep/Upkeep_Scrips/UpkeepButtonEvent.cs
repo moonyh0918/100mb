@@ -40,7 +40,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
         tokenpanel1.GetComponent<Text>().text = Character.instance.GateNum.ToString();
         tokenpanel2.GetComponent<Text>().text = Character.instance.SumMonsterHP.ToString();
 
-        
+        ItemReset();
         ShowInventory();
         
         Character.instance.characterFocus = Character.instance.MaxFocus;
@@ -87,7 +87,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
                 childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
                 childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
                 childOj.GetComponent<ItemCard>().ItemName = Character.instance.CharacterInventory[i].ItemName;
-                //아이템 인벤토리 표현 좌표값 수정 요망
+
             }
 
         }
@@ -142,6 +142,12 @@ public class UpkeepButtonEvent : MonoBehaviour {
         }
             
     }
+    public void ItemReset()
+    {
+        Character.instance.ItemReset();
+    }
+
+    
 
 
 }

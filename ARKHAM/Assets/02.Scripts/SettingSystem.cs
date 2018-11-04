@@ -26,6 +26,7 @@ public class SettingSystem : MonoBehaviour {
         GameObject.Find("CharacterSheet").GetComponent<Image>().sprite = Character.instance.SheetImage;
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
         Character.instance.Focus = 100;
+        Character.instance.currentMoveCount = Character.instance.maxMoveCount;
 
     }
 

@@ -56,7 +56,7 @@ public class GateController : MonoBehaviour {
         GameObject parent = GameObject.Find(openloacl);
         Local sealMarkCheck = parent.GetComponent<Local>();
 
-        if(sealMarkCheck.SealMark)
+        if(sealMarkCheck.SealMark || Character.instance.characterid==0)
         {
             Debug.Log("봉인된지역");
         }

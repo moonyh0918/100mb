@@ -167,16 +167,21 @@
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossDefense.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossHP.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossNameText.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfMagic.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfWeapon.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterTotalCombat.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CombatUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MovePointPop.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\NowHp.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\NowMp.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\NowPhase.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\Scoreontroller.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />
+    <Compile Include="Assets\BasicScore.cs" />
     <Compile Include="Assets\BossAattackEvasion.cs" />
     <Compile Include="Assets\CharacterBasic.cs" />
-    <Compile Include="Assets\CharacterpowerOfMagic.cs" />
-    <Compile Include="Assets\CharacterpowerOfWeapon.cs" />
-    <Compile Include="Assets\CharacterTotalCombat.cs" />
     <Compile Include="Assets\Functions\AnotherWorld\Scripts\RotationGate.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\Dice.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\DiceController.cs" />
@@ -186,21 +191,17 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
     <Compile Include="Assets\ItemClickEvent.cs" />
-    <Compile Include="Assets\NowHp.cs" />
-    <Compile Include="Assets\NowMp.cs" />
-    <Compile Include="Assets\NowPhase.cs" />
-    <Compile Include="Assets\Scoreontroller.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -401,10 +402,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/moon/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/moon/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

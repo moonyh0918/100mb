@@ -223,5 +223,35 @@ public class Character : MonoBehaviour
         // 아이템은 선택해서 버리게 
     }
 
+    public void ItemReset()
+    {
+        List<ItemCard> result;
+        result =CharacterInventory.FindAll(delegate(ItemCard cards)
+        {
+            return cards.useCheck == true;
+        }
+        );
+
+        if(result.Count!=0)
+        {
+            for (int i=0;i<result.Count;i++)
+            {
+                Debug.Log(result[i]);
+                result[i].useCheck = false;
+            }
+        }
+
+        powerOfMagic = 0;
+        powerOfWeapon = 0;
+        nowHand = 0;
+
+        
+    }
+
     
+    
+
+
+
+
 }
