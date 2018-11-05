@@ -42,6 +42,7 @@ public class FinalBattle : MonoBehaviour {
             if (GameObject.FindGameObjectWithTag("Boss").ToString() == "Boss_Azathoth(Clone) (UnityEngine.GameObject)")
             {
                 Debug.Log("게임 끝");
+                Scoreontroller.instanse.EndGame();
                 return;
             }
             //GameObject.FindGameObjectWithTag("Boss").ToString();
@@ -49,6 +50,9 @@ public class FinalBattle : MonoBehaviour {
             OtherPanel.SetActive(false);
             Boss.instance.StartOfBattle();
             FinalBattleCanvas.SetActive(true);
+            UpkeepButtonEvent.instance.UpkeepEnCounterStep();
+            MaincameraController.instance.target = null;
+  
         }
     }
     
@@ -94,7 +98,12 @@ public class FinalBattle : MonoBehaviour {
         Debug.Log("캐릭터 전투");
         UpkeepButtonEvent.instance.UpkeepStepEnd();
         FinalBattlePanel.SetActive(true);
-        UpkeepButtonEvent.instance.ShowInventory();
+
+
+        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
+        Vector3 parentvector = parentOj.transform.position;
+
+        UpkeepButtonEvent.instance.ShowInventory(new Vector3(parentvector.x - 70 + (1 * 24), parentvector.y, parentvector.z));
         phase = BattlePhase.CharacterPhaseSelect;
     }
 
@@ -120,6 +129,7 @@ public class FinalBattle : MonoBehaviour {
         Debug.Log("보스 데미지 : "+succ);
         Boss.instance.BossDoomTrack -= succ;
         Debug.Log("남은 보스 체력 : "+ Boss.instance.BossDoomTrack);
+        Boss.instance.BossDieCheck();
     }
     
 

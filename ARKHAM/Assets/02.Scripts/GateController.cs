@@ -56,22 +56,23 @@ public class GateController : MonoBehaviour {
         GameObject parent = GameObject.Find(openloacl);
         Local sealMarkCheck = parent.GetComponent<Local>();
 
-        if(sealMarkCheck.SealMark || Character.instance.characterid==0)
+        if(sealMarkCheck.SealMark)
         {
             Debug.Log("봉인된지역");
+        }
+        else if(sealMarkCheck.local_Id==Character.instance.currentLocal_Id &&Character.instance.characterid == 0)
+        {
+            Debug.Log("아만다 사프 능력, 게이트 발생 x");
         }
         else
         {
             
-
-            Debug.Log(GateDeck[0].name);
-            Debug.Log(sealMarkCheck.ToString());
             if (!sealMarkCheck.gateOpenCheck)
             {
                 GameObject gateClone = Instantiate(GateDeck[0], parent.transform);
 
                 Local otherWold = gateClone.GetComponent<Gate>().OpenLocal;
-                if(otherWold.allowLocal_Id[0]==0)
+                if(otherWold.allowLocal_Id[0]==0)   //돌아오는 장소 연결
                     otherWold.allowLocal_Id[0] = parent.GetComponent<Local>().local_Id;
                 
                 else

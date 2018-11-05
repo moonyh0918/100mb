@@ -181,7 +181,9 @@
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />
     <Compile Include="Assets\BasicScore.cs" />
     <Compile Include="Assets\BossAattackEvasion.cs" />
+    <Compile Include="Assets\BossHPScore.cs" />
     <Compile Include="Assets\CharacterBasic.cs" />
+    <Compile Include="Assets\ClueScore.cs" />
     <Compile Include="Assets\Functions\AnotherWorld\Scripts\RotationGate.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\Dice.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\DiceController.cs" />
@@ -190,7 +192,11 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+    <Compile Include="Assets\GateTrophyScore.cs" />
     <Compile Include="Assets\ItemClickEvent.cs" />
+    <Compile Include="Assets\MonsterHPScore.cs" />
+    <Compile Include="Assets\ScoreSetting.cs" />
+    <Compile Include="Assets\TotalScore.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BasicScore : MonoBehaviour {
+public class BasicScore : ScoreSetting
+{
     [Range(1, 50)]
     [SerializeField]
     readonly float speed = 0.05f;
     RectTransform NoticeRect;
 
     public Text basicscore;
-    private void Start()
+    public void Setting()
     {
         basicscore = GetComponent<Text>();
         basicscore.text = Scoreontroller.instanse.BasicScore().ToString();

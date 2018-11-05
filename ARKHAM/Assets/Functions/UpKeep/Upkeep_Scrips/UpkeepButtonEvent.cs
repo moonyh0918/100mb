@@ -40,8 +40,15 @@ public class UpkeepButtonEvent : MonoBehaviour {
         tokenpanel1.GetComponent<Text>().text = Character.instance.GateNum.ToString();
         tokenpanel2.GetComponent<Text>().text = Character.instance.SumMonsterHP.ToString();
 
-        ItemReset();
-        ShowInventory();
+
+        //작동 했다 안햇다 해서 주석처리
+        //ItemReset();
+
+        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
+        Vector3 parentvector = parentOj.transform.position;
+
+
+        ShowInventory(new Vector3(parentvector.x - 70, parentvector.y, parentvector.z));
         
         Character.instance.characterFocus = Character.instance.MaxFocus;
 
@@ -73,18 +80,20 @@ public class UpkeepButtonEvent : MonoBehaviour {
     }
 
 
-    public void ShowInventory()
+    public void ShowInventory(Vector3 showPotition)
     {
         Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
         //Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
         Vector3 parentvector = parentOj.transform.position;
         Transform childOj;
 
+        Debug.Log(Character.instance.CharacterInventory.Count);
+
         if (0 < Character.instance.CharacterInventory.Count)
         {
             for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
             {
-                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
+                childOj = Instantiate(InventoryCard,showPotition+new Vector3(i*24,0,0) /*new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z)*/, Quaternion.identity, parentOj);
                 childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
                 childOj.GetComponent<ItemCard>().ItemName = Character.instance.CharacterInventory[i].ItemName;
 

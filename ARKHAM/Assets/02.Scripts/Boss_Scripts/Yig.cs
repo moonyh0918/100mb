@@ -6,7 +6,7 @@ public class Yig : Boss {
 
     private void Start()
     {
-        BossDoomTrack = 10;
+        BossDoomTrack = 4;
         BossCombatRating = -3;
         BossDefense = Defenses.None;
         CombatCheck = +1;
@@ -53,21 +53,21 @@ public class Yig : Boss {
     public override void DamegeResult(int success)
     {
         int suc = success;
-        if(1>suc)
+        if(1<suc)
         {
             Debug.Log("통과");
         }
         else
         {
             Debug.Log("데미지");
-            Character.instance.characterStamina -= 1;
+            Character.instance.characterStamina -= 5;
             Character.instance.characterSanity -= 1;
 
             if(Character.instance.characterSanity<0 || Character.instance.characterStamina < 0)
             {
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
                 Debug.Log("게임끝");
-                //게임 앤드 화면
+                CharacterDieCheck();
             }
         }
         CombatCheck -= 1;

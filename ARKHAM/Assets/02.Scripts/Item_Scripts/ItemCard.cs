@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ItemCard : MonoBehaviour {
 
+    public Image alphcahge;
     public enum ItemKind { CommonItem, UniquItem, Spell };
     public ItemKind itemkind;
     public string ItemName;
@@ -37,7 +38,25 @@ public class ItemCard : MonoBehaviour {
 
     public virtual void ItemFuntion()
     {
+        
+       
 
     }
+
+    //알파값 조작 코드 안되서 물어보기용
+   /* public void Alphchange()
+    {
+
+        Color imageAlph;
+        imageAlph = alphcahge.color;
+        if (useCheck)
+        {
+            alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 1.0f);
+        }
+        else
+        {
+            alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 0.0f);
+        }
+    }*/
 
 }

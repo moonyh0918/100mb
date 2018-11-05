@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemClickEvent : MonoBehaviour {
 
+    
+
 	void Start () {
         var button = transform.GetComponent<Button>();
         button.onClick.AddListener(delegate () { this.TaskOnClick(); });
@@ -17,6 +19,7 @@ public class ItemClickEvent : MonoBehaviour {
 
     void TaskOnClick()
     {
+
         var Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().CharacterInventory;
 
         
@@ -25,4 +28,5 @@ public class ItemClickEvent : MonoBehaviour {
         Debug.Log(Inventory.Find(x => x.ItemName.Contains(GetComponent<ItemCard>().ItemName)));
         CardFuntion.ItemFuntion();
     }
+
 }
