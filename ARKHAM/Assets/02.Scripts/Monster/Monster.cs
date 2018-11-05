@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,11 +24,12 @@ public class Monster : MonoBehaviour {
     public List<SAttribute> sAttribute = new List<SAttribute>();
     public bool meetPlayer = false;
 
-    public static ShowMonsterInfo monsterInfoPanel;
+    public static ShowMonsterInfo showMonsterInfo;
 
     private void Start()
     {
-        monsterInfoPanel = FindObjectOfType<ShowMonsterInfo>();
+        Transform monsterInfoPanel = GameObject.Find("MonsterInfoPanel").transform.GetChild(0);
+        showMonsterInfo = monsterInfoPanel.GetComponent<ShowMonsterInfo>();
     }
 
     public Monster(string _name, int _hp, int _fearLevel, int _combatLevel, int _staminaDamage, int _sanityDamage, int _evasionLevel, Type _type, Simbol _simbol, List <SAttribute> _sAttribute)
@@ -74,13 +75,16 @@ public class Monster : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        monsterInfoPanel.gameObject.SetActive(true);
-        monsterInfoPanel.UpdateInfoUI(this);
+        if (GameManager.instance.CheckGameState(GameManager.GameState.Move))
+        {
+            showMonsterInfo.gameObject.SetActive(true);
+            showMonsterInfo.UpdateInfoUI(this);
+        }
     }
 
     private void OnMouseExit()
     {
-        monsterInfoPanel.gameObject.SetActive(false);
+        showMonsterInfo.gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)

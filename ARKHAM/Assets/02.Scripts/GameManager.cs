@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    public bool CheckState(GameState confirmState)
+    public bool CheckGameState(GameState confirmState)
     {
         if (confirmState == gameState)
             return true;

@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class Gate : MonoBehaviour {
 
-    
     public Monster.Simbol GateSimbol;
     public Local OpenLocal;
     public int Modifier;
     public Sprite GateImage;
 
     public Monster[] BackMonster;
+
+    public ShowGateInfo showGateInfo;
+
+    private void Start()
+    {
+        Transform gateInfoPanel = GameObject.Find("GateInfoPanel").transform.GetChild(0);
+        showGateInfo = gateInfoPanel.GetComponent<ShowGateInfo>();
+    }
 
     public void CloseGate()
     {
@@ -94,5 +101,20 @@ public class Gate : MonoBehaviour {
         {
             Character.instance.specialLocalCheck = false;
         }
+    }
+
+    private void OnMouseEnter()
+    {
+        if (GameManager.instance.CheckGameState(GameManager.GameState.Move))
+        {
+            showGateInfo.gameObject.SetActive(true);
+            showGateInfo.UpdateInfoUI(this);
+        }
+
+    }
+
+    private void OnMouseExit()
+    {
+        showGateInfo.gameObject.SetActive(false);
     }
 }

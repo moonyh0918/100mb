@@ -48,7 +48,7 @@ public class MonsterController : MonoBehaviour {
 
         Debug.Log(instanceMon.name);
         // 이미지를 Resources파일에서 가져옴
-        Texture monsterTexture = Resources.Load<Texture>("MonsterImages/" + instanceMon.name);
+        Texture monsterTexture = Resources.Load<Texture>("MonsterImages/" + instanceMon.id);
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;
 
         monsters.Add(instanceMon);

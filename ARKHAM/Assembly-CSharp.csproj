@@ -171,6 +171,7 @@
     <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MovePointPop.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\ShowGateInfo.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\ShowLocalInfo.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\ShowMonsterInfo.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />

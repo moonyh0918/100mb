@@ -23,7 +23,7 @@ public class CombatController : MonoBehaviour {
         monster = _monster;
 
         // CobatUIPanel 변경 후 호출 
-        CombatUI.instance.SetCombatUI(monster.id);
+        CombatUI.instance.SetCombatUI(monster);
         
         combatCamera.SetActive(true);
         mainCamera.SetActive(false);

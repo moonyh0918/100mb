@@ -16,7 +16,7 @@ public class ShowLocalInfo : MonoBehaviour {
 
     private void Start()
     {
-        gameObject.SetActive(false);    
+        gameObject.SetActive(false);
     }
 
     public void UpdateInfoUI(Local local)
