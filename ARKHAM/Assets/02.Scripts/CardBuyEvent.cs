@@ -12,6 +12,7 @@ public class CardBuyEvent : MonoBehaviour {
     public GameObject ItemPanel3;
     public List<ItemCard> Drowcard;
     public GameObject Nomoney;
+    private int nowItemDeck;
     
 
     public static CardBuyEvent instance = null;
@@ -32,8 +33,8 @@ public class CardBuyEvent : MonoBehaviour {
     //카드 구입 이벤트시 아이템 종류 드로우
     public void Drowcardsetting(int num)
     {
-        
-        if(num==1)
+        nowItemDeck = num;
+        if (num==1)
         {
             Drowcard = ItemDictionary.instance.CommonItemDeck;
             ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
@@ -75,6 +76,7 @@ public class CardBuyEvent : MonoBehaviour {
             Character.instance.CharacterInventory.Add(Drowcard[num]);
             
             EventPanel.SetActive(false);
+            LocalEventController.instance.NextButtonSet();
         }
         else
         { 
@@ -92,6 +94,38 @@ public class CardBuyEvent : MonoBehaviour {
     public void CardDrow(int num)
     {
         ItemDictionary.instance.DrowOneCard(num);
+
+    }
+
+
+    public void NotItemBtn()
+    {
+        if (nowItemDeck == 1)
+        {
+            Drowcard = ItemDictionary.instance.CommonItemDeck;
+            Notselect(Drowcard);
+
+
+        }
+        if (nowItemDeck == 2)
+        {
+            Drowcard = ItemDictionary.instance.UniquItemDeck;
+            Notselect(Drowcard);
+
+        }
+    }
+
+
+    public void Notselect(List<ItemCard> item)
+    {
+        for(int i= 0; i<3; i++)
+        {
+            item.Add(ItemDictionary.instance.CommonItemDeck[0]);
+            item.RemoveAt(0);
+        }
+
+        EventPanel.SetActive(false);
+        LocalEventController.instance.NextButtonSet();
 
     }
 

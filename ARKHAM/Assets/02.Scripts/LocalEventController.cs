@@ -23,6 +23,10 @@ public class LocalEventController : MonoBehaviour {
     public GameObject notprice;
     public GameObject sciencebildingselectPanel;
 
+
+    public GameObject notLocalFuntion;
+
+
     public GameObject otherWorldPanel;
 
 
@@ -32,6 +36,8 @@ public class LocalEventController : MonoBehaviour {
     public GameObject eventCard;
     public Text localName;
     public Text eventMessage;
+
+    public GameObject nextButton;
 
     public static LocalEventController instance = null;
 
@@ -61,9 +67,11 @@ public class LocalEventController : MonoBehaviour {
     // 지역 조우 패널 활성화
     public void LocalEnCounterStep()
     {
+
         //차원문이 있을시 조우단계에서 차원문 닫기 패널 활성화
         if (Character.instance.specialLocalCheck)
         {
+            nextButton.SetActive(false);
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
             //차원문 닫기 쪽 패널 활성화
             GateController.instance.ClosePanel();
@@ -71,6 +79,7 @@ public class LocalEventController : MonoBehaviour {
 
         else if(character.currentLocal_Id%10!=0)
         {
+            nextButton.SetActive(false);
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
 
             /* Local 스크립트의 static함수로 대체
@@ -112,6 +121,7 @@ public class LocalEventController : MonoBehaviour {
 
     public void LocalFuntionButtonDown()    //장소 능력 활성화 /////////////////////////////
     {
+        nextButton.SetActive(false);
         localEncounterPanel.SetActive(false);
         switch(eventLocal.local_Id)
         {
@@ -129,6 +139,12 @@ public class LocalEventController : MonoBehaviour {
                 break;
             case 53:
                 SciencbulildingEvent();
+                break;
+            default:
+                GameObject notLocalFuntionpanel = Instantiate(notLocalFuntion, GameObject.Find("Canvas").transform);
+                Destroy(notLocalFuntionpanel, 1.5f);
+
+                localEncounterPanel.SetActive(true);
                 break;
 
         }
@@ -150,6 +166,7 @@ public class LocalEventController : MonoBehaviour {
         InvokeRepeating("MoveCenter", 0, 0.3f * Time.deltaTime);
 
         localName.text = eventLocal.name;
+        nextButton.SetActive(true);
     }
 
 
@@ -331,6 +348,7 @@ public class LocalEventController : MonoBehaviour {
         {
             //선택
             sciencebildingselectPanel.SetActive(true);
+            nextButton.SetActive(true);
 
         }
     }
@@ -367,5 +385,11 @@ public class LocalEventController : MonoBehaviour {
                 Destroy(notPricePanel, 1.5f);
             }
         }
+    }
+
+
+    public void NextButtonSet()
+    {
+        nextButton.SetActive(true);
     }
 }

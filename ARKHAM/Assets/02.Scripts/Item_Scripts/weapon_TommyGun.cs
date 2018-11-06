@@ -12,6 +12,9 @@ public class weapon_TommyGun : ItemCard {
 
     public override void ItemFuntion()
     {
+        Debug.Log("토미건");
+        Debug.Log(Character.instance.nowHand);
+        Debug.Log(useCheck);
         if (Character.instance.nowHand + hand < 3)
         {
             if (!useCheck)
@@ -28,6 +31,12 @@ public class weapon_TommyGun : ItemCard {
                 useCheck = false;
                 Character.instance.nowHand -= hand;
             }
+        }
+        else if (useCheck)
+        {
+            useCheck = false;
+            Character.instance.powerOfWeapon -= 6;
+            Character.instance.nowHand -= hand;
         }
     }
 

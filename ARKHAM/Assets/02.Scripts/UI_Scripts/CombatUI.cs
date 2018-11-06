@@ -64,7 +64,14 @@ public class CombatUI : MonoBehaviour {
         combatAnimPanel.SetActive(false);
 
         combatPanel.SetActive(true);
+
+        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
+        Vector3 parentvector = parentOj.transform.position;
+
+        UpkeepButtonEvent.instance.ShowInventory(new Vector3(parentvector.x - 70, parentvector.y, parentvector.z));
+
     }
+
 
     public void CombatUIActive(bool value)
     {

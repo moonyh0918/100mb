@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterpowerOfMagic : MonoBehaviour {
 
     private Text powerOfMagic;
+
     void Start()
     {
         powerOfMagic = GetComponent<Text>();

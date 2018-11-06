@@ -64,10 +64,18 @@ public class Boss : MonoBehaviour {
     {
         if(BossDoomTrack<0)
         {
+            BossDoomTrack = 0;
             //게임 정산화면
             Destroy(this.gameObject);
+            Scoreontroller.instanse.EndGame();
             
         }
+    }
+    public virtual void CharacterDieCheck()
+    {
+            //게임 정산화면
+            Destroy(this.gameObject);
+            Scoreontroller.instanse.EndGame();
     }
 
 }

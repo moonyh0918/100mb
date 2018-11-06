@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+    public int characterid;
+
     IEnumerator MovingCharacter;
     public Sprite SheetImage;
 
@@ -79,7 +81,7 @@ public class Character : MonoBehaviour
     public Vector3 goalPosition;   //이동해야될 위치
     public int movingDirection = 0;
 
-    public int currentLocal_Id;
+    public int currentLocal_Id=0;
     
     // 캐릭터 상태 변수,  현재는 전투 중 죽을 경우에만 사용, 모든 경우에 적용시키기 
     public enum State {IDLE, MOVE, COMBAT, FAINT};
@@ -221,5 +223,35 @@ public class Character : MonoBehaviour
         // 아이템은 선택해서 버리게 
     }
 
+    public void ItemReset()
+    {
+        List<ItemCard> result;
+        result =CharacterInventory.FindAll(delegate(ItemCard cards)
+        {
+            return cards.useCheck == true;
+        }
+        );
+
+        if(result.Count!=0)
+        {
+            for (int i=0;i<result.Count;i++)
+            {
+                Debug.Log(result[i]);
+                result[i].useCheck = false;
+            }
+        }
+
+        powerOfMagic = 0;
+        powerOfWeapon = 0;
+        nowHand = 0;
+
+        
+    }
+
     
+    
+
+
+
+
 }

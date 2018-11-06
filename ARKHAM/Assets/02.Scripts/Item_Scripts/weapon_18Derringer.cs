@@ -32,6 +32,13 @@ public class weapon_18Derringer : ItemCard {
                 Character.instance.nowHand -= hand;
             }
         }
+        else if(useCheck)
+        {
+            useCheck = false;
+            Character.instance.powerOfWeapon -= 2;
+            Character.instance.nowHand -= hand;
+        }
+       
 
     }
 }

@@ -78,7 +78,7 @@ public class MaincameraController : MonoBehaviour
 
         }
 
-
+        /*
         else
         {
             float keyHorizontal = Input.GetAxis("Horizontal");
@@ -91,7 +91,7 @@ public class MaincameraController : MonoBehaviour
 
             transform.position -= (transform.position - target.transform.position) * Input.GetAxis("Mouse ScrollWheel") * zoom;
 
-        }
+        }*/
     }
 
 

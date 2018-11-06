@@ -59,6 +59,10 @@ public class GateController : MonoBehaviour {
         {
             Debug.Log("봉인된지역");
         }
+        else if(sealMarkCheck.local_Id==Character.instance.currentLocal_Id &&Character.instance.characterid == 0)
+        {
+            Debug.Log("아만다 사프 능력, 게이트 발생 x");
+        }
         else
         {
             if (!sealMarkCheck.gateOpenCheck)
@@ -70,7 +74,7 @@ public class GateController : MonoBehaviour {
                 gateClone.name = otherWold.name;
 
 
-                if (otherWold.allowLocal_Id[0]==0)
+                if (otherWold.allowLocal_Id[0]==0) //돌아오는 장소 연결
                     otherWold.allowLocal_Id[0] = parent.GetComponent<Local>().local_Id;
                 else
                     otherWold.allowLocal_Id[1] = parent.GetComponent<Local>().local_Id;
