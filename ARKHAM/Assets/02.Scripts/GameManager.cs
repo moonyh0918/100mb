@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour {
     public enum GameState {Setting,Upkeep, Move, Encounter, Mythos}
     public GameState gameState;
 
-    public static GameManager instance = null;
+    public GameStateUI gameSateUI;
 
+    public static GameManager instance = null;
+   
 
     private void Awake()
     {
@@ -34,8 +36,7 @@ public class GameManager : MonoBehaviour {
     {
         gameState = GameState.Setting;
         //RandomBoss();
-        SettingSystem.instance.SheetSetting();
-
+        SettingSystem.instance.SheetSetting();    
     }
 
 
@@ -84,6 +85,9 @@ public class GameManager : MonoBehaviour {
     public void GameSetting()
     {
         gameState = GameState.Mythos;
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("신 화 단 계");
+
         SettingSystem.instance.EndSetting();
     }
 
@@ -94,6 +98,8 @@ public class GameManager : MonoBehaviour {
         MythosController.instance.MythosStateEnd();
    
         gameState = GameState.Upkeep;
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("유 지 단 계");
 
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
         UpkeepButtonEvent.instance.RetainerAndBless();
@@ -103,7 +109,9 @@ public class GameManager : MonoBehaviour {
     public void MoveState()
     {
         gameState = GameState.Move;
-        
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("이 동 단 계");
+
         UpkeepButtonEvent.instance.UpkeepStepEnd();
         MoveController.instance.CheckOtherWorld();
 
@@ -116,6 +124,8 @@ public class GameManager : MonoBehaviour {
         // 이동 단계 UI 비활성화 함수 호출  
 
         gameState = GameState.Encounter;
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("조 우 단 계");
 
         LocalEventController.instance.LocalEnCounterStep();
     }
