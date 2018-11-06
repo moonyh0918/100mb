@@ -14,7 +14,7 @@ public class weapon_TommyGun : ItemCard {
     {
         Debug.Log("토미건");
         Debug.Log(Character.instance.nowHand);
-        Debug.Log(useCheck);
+        
         if (Character.instance.nowHand + hand < 3)
         {
             if (!useCheck)
@@ -38,6 +38,8 @@ public class weapon_TommyGun : ItemCard {
             Character.instance.powerOfWeapon -= 6;
             Character.instance.nowHand -= hand;
         }
+        Debug.Log(useCheck);
+        //Alphchange();
     }
 
 }

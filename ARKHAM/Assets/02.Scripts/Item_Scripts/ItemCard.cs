@@ -47,15 +47,16 @@ public class ItemCard : MonoBehaviour {
    /* public void Alphchange()
     {
 
-        Color imageAlph;
-        imageAlph = alphcahge.color;
+        Image imageAlph;
+        //imageAlph = GetComponent<Image>();
+    
         if (useCheck)
         {
-            alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 1.0f);
+            //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 1.0f);
         }
         else
         {
-            alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 0.0f);
+            //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 0.0f);
         }
     }*/
 
