@@ -21,7 +21,10 @@ public class ShowLocalInfo : MonoBehaviour {
 
     public void UpdateInfoUI(Local local)
     {
-        nameText.text = local.name;
-        encounterText.text = local.localFunction;
+        if (local.local_Id % 10 != 0)
+        {
+            nameText.text = local.name;
+            encounterText.text = local.localFunction;
+        }
     }
 }
