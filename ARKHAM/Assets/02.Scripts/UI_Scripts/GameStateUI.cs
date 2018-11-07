@@ -28,7 +28,7 @@ public class GameStateUI : MonoBehaviour {
 
         yield return new WaitForSeconds(0.6f);
 
-        while (background.color.a <= 0.1f)
+        while (background.color.a >= 0.1f)
         {
             Debug.Log(background.color.a);
             background.color = Color.Lerp(background.color, alpha, Time.deltaTime * 10.0f);

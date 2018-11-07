@@ -34,6 +34,8 @@ public class LocalEventController : MonoBehaviour {
     public Text localFunction;
 
     public GameObject eventCard;
+    public RectTransform frontSide;
+    public RectTransform backSide;
     public Text localName;
     public Text eventMessage;
 
@@ -175,7 +177,6 @@ public class LocalEventController : MonoBehaviour {
         currentPosition = eventCard.transform.position;
 
         eventCard.transform.position = Vector3.MoveTowards(currentPosition, target,  1.5f);
-
         // 카드가 원하는 곳에 위치하면 반복 종료, 뒤집는 애니메이션 진행
         if (currentPosition == target)
         {
@@ -188,7 +189,7 @@ public class LocalEventController : MonoBehaviour {
 
 
     private void FlipCard()
-    {
+    { 
         // 테스트를 위해 랜덤 값
         eventLocal.ActiveEvent(Random.Range(1,3));
 
@@ -203,7 +204,7 @@ public class LocalEventController : MonoBehaviour {
         for (int i = 0; i < (drawCardPanel.transform.childCount - 1); i++)
         {
             drawCardPanel.transform.GetChild(i).gameObject.SetActive(false);
-        }
+        } 
     }
 
 
@@ -213,7 +214,8 @@ public class LocalEventController : MonoBehaviour {
 
         eventCard.transform.position = currentPosition;
         eventCard.transform.rotation = Quaternion.Euler(0, 180, 0);
-
+        frontSide.sizeDelta = new Vector2(157.9f, 205.6f);
+        backSide.sizeDelta = new Vector2(157.9f, 205.6f);
         eventCard.transform.GetChild(3).gameObject.SetActive(true);
 
         // 배경화면 
