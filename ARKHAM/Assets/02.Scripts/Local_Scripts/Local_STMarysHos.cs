@@ -11,6 +11,8 @@ public class Local_STMarysHos : Local {
         allowLocal_Id[0] = 70;
 
         position = transform.position;
+
+        localFunction = "치료를 통해 체력을 회복할 수 있습니다. 무료로 체력 1을 회복하거나, $2를 내고 체력을 최대로 회복할 수 있습니다.";
     }
 
     protected override void EventOne()

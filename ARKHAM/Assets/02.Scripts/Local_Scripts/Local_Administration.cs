@@ -12,6 +12,7 @@ public class Local_Administration : Local {
         allowLocal_Id[0] = 50;
 
         position = transform.position;
+        localFunction = "$8을 내고 기술 카드 2장을 뽑을 수 있습니다. 그중 1장을 가지고 나머지 1장은 카드더미 밑에 넣습니다.";
     }
 
     protected override void EventOne()

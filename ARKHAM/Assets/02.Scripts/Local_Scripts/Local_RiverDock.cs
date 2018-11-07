@@ -11,6 +11,8 @@ public class Local_RiverDock : Local {
         allowLocal_Id[0] = 30;
 
         position = transform.position;
+
+        localFunction = "획득한 괴물을 체력의 합이 5 이상이 되게 내거나, 획득한 차원문 1개를 내면 $5를 얻습니다.";
     }
 
     protected override void EventOne()

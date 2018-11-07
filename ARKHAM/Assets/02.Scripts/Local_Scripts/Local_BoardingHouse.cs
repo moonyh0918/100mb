@@ -12,6 +12,7 @@ public class Local_BoardingHouse : Local {
         allowLocal_Id[0] = 80;
 
         position = transform.position;
+        localFunction = "획득한 괴물을 체력의 합이 10 이상이 되게 내거나, 획득한 차원문 2개를 내거나, 획득한 괴물을 체력의 합이 5 이상이 되게 내고 획득한 차원문 1개를 내면 조력자 카드더미에서 조력자 카드 1장을 골라서 얻을 수 있습니다.";
     }
 
 

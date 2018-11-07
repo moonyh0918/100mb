@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class SettingSystem : MonoBehaviour {
 
-	public static SettingSystem instance = null; 
+	public static SettingSystem instance = null;
+    public GameObject upkeeppanel;
 
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class SettingSystem : MonoBehaviour {
 
     public void SheetSetting()
     {
+        upkeeppanel.SetActive(true);
         GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().Worshippers();    //필드에 영향을 주는 보스능력
 
 

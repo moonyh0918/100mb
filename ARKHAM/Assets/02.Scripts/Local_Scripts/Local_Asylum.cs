@@ -10,6 +10,7 @@ public class Local_Asylum : Local {
         allowLocal_Id[0] = 10;
 
         position = transform.position;
+        localFunction = " 정신 치료를 통해 정신력을 회복할 수 있습니다. 무료로 정신력 1을 회복하거나, $2를 내고 정신력을 최대로 회복할 수 있습니다.";
     }
 
     protected override void EventOne()

@@ -86,15 +86,18 @@ public class CombatUI : MonoBehaviour {
     public void PlayerWinAnim()
     {
         combatAnimPanel.GetComponent<Animator>().SetBool("PlayerWin", true);
+        mainButtonPanel.SetActive(true);
     }
 
     public void PlayerLoseAnim()
     {
         combatAnimPanel.GetComponent<Animator>().SetBool("MonsterWin", true);
+        mainButtonPanel.SetActive(true);
     }
 
     public void FinishCombatAnim()
     {
         combatAnimPanel.GetComponent<Animator>().SetBool("FinishCombat", true);
+        mainButtonPanel.SetActive(true);
     }
 }

@@ -11,6 +11,7 @@ public class Local_SouthChurch : Local {
         allowLocal_Id[0] = 80;
 
         position = transform.position;
+        localFunction = "획득한 괴물을 체력의 합이 5 이상 되게 내거나, 획득한 차원문 1개를 내면 원하는 조사자를 축복받은 상태로 만들 수 있습니다.";
     }
 
     protected override void EventOne()
