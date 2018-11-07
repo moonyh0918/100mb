@@ -137,6 +137,8 @@ public class GameManager : MonoBehaviour {
         LocalEventController.instance.ExitEvent();
         
         gameState = GameState.Mythos;
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("신 화 단 계");
 
         MythosController.instance.MythosStep();
 

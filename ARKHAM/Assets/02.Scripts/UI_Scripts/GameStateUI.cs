@@ -7,9 +7,11 @@ public class GameStateUI : MonoBehaviour {
 
     public Image background;
     public Text stateText;
+    public bool skip;
 
     public void UpdateStateUI(string state)
     {
+        skip = true;
         UIInit();
 
         stateText.text = state;
@@ -24,19 +26,31 @@ public class GameStateUI : MonoBehaviour {
     {
         Color alpha = new Color(0, 0, 0, 0);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.6f);
 
-        while (background.color != alpha)
+        while (background.color.a <= 0.1f)
         {
+            Debug.Log(background.color.a);
             background.color = Color.Lerp(background.color, alpha, Time.deltaTime * 10.0f);
             stateText.color = Color.Lerp(stateText.color, alpha, Time.deltaTime * 10.0f);
             yield return new WaitForSeconds(0.01f);
+
+            if (skip)
+            {
+                UIInit();
+                break;
+            }
         }
+
+        gameObject.SetActive(false);
     }
 
     private void UIInit()
     {
         background.color = new Color(0, 0, 0, 1);
-        stateText.color = new Color(0, 0, 0, 1);
+        stateText.color = new Color(1, 1, 1, 1);
+
+        skip = false;
     }
+    
 }
