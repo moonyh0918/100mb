@@ -23,12 +23,7 @@ public class LocalEventController : MonoBehaviour {
     public GameObject notprice;
     public GameObject sciencebildingselectPanel;
 
-
     public GameObject notLocalFuntion;
-
-
-    public GameObject otherWorldPanel;
-
 
     public Image localImage;
     public Text localFunction;
@@ -48,6 +43,8 @@ public class LocalEventController : MonoBehaviour {
 
     //임의의 이벤트 카드 뽑은뒤 선택
     public GameObject SelectLocalEventPanel;
+
+    ///////////////////////////////// 뭔데 변수이름 이따구야 이게 뭐하는 변순지 어찌알어 
     private int i, j, k;
     private Local tempLocal;
 
@@ -79,7 +76,7 @@ public class LocalEventController : MonoBehaviour {
             GateController.instance.ClosePanel();
         }
 
-        else if(character.currentLocal_Id%10!=0)
+        else if(character.currentLocal_Id % 10 != 0)
         {
             nextButton.SetActive(false);
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
@@ -325,15 +322,6 @@ public class LocalEventController : MonoBehaviour {
                 tempLocal = null; i = 0; j = 0; k = 0;
                 break;
         }
-    }
-
-    public void InOtherWold()
-    {
-        otherWorldPanel.SetActive(true);
-    }
-    public void OutOtherWold()
-    {
-        otherWorldPanel.SetActive(false);
     }
 
     public void SciencbulildingEvent()

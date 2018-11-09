@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     IEnumerator MovingCharacter;
     public Sprite SheetImage;
 
+    /////////////////////////  변수 이름 소문자 시작,    프로퍼티는 대문자 시작을 전부 바꿔놓기
     //캐릭터스텟
     public int Sanity;
     public int characterSanity { get { return Sanity; } set { Sanity = value; } }
@@ -79,7 +80,6 @@ public class Character : MonoBehaviour
     public int currentMoveCount = 0;    //현재 이동횟수
 
     public Vector3 goalPosition;   //이동해야될 위치
-    public int movingDirection = 0;
 
     public int currentLocal_Id=0;
     
@@ -153,8 +153,9 @@ public class Character : MonoBehaviour
             StopCoroutine(MovingCharacter);
             MovingComplete();
             Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
-            LocalEventController.instance.InOtherWold();
             transform.position = OtherWorld.position; //다른세계로 날려보내기
+
+            AnotherWorldUI.instance.InOtherWorld();
             GateController.instance.CharacterInGate = other.GetComponent<Gate>();
         }
         else if(other.CompareTag("Gate") && specialLocalCheck)
@@ -180,6 +181,7 @@ public class Character : MonoBehaviour
             DieCuzStamina();
     }
 
+
     void DieCuzStamina()
     {
         Debug.Log("체력이 0이하가 되어 죽음");
@@ -202,9 +204,11 @@ public class Character : MonoBehaviour
         CharacterDie(localHospitol);
     }
 
+
+    // 체력이 없어 죽었을 경우 인자로 Asylum병원으로, 정신력 때문에 죽었을 경우 정신병원으로
     void CharacterDie(Local local)
     {
-        /* 이계에서 죽었을 경우 
+        /* 이계에서 죽었을 경우   - 미구현 
         if (currentLocal_Id / 10 == 11)
         {
             시공간상의 실종 함수 호출 
@@ -213,15 +217,16 @@ public class Character : MonoBehaviour
 
         characterState = State.FAINT;
 
+        // 캐릭터와 카메라 해당 병원으로 이동
         Vector3 localPosition = local.transform.position;
-        Vector3 pos = new Vector3(localPosition.x, 1.0f, localPosition.z - 3.0f);
-        transform.position = pos;
-        MaincameraController.instance.SetPosition(transform.position);
+        transform.position = new Vector3(localPosition.x, 1.0f, localPosition.z - 3.0f);
 
         // 잃어버릴때 애니메이션 적용 
         money = 0;
         clue = 0;
         // 아이템은 선택해서 버리게 
+
+        //메인카메라 
     }
 
     public void ItemReset()
@@ -244,15 +249,6 @@ public class Character : MonoBehaviour
 
         powerOfMagic = 0;
         powerOfWeapon = 0;
-        nowHand = 0;
-
-        
+        nowHand = 0;      
     }
-
-    
-    
-
-
-
-
 }

@@ -26,7 +26,7 @@ public class OutSkirtsUI : MonoBehaviour {
 
     public void UpdateOutSkirtsUI(string name)
     {
-        // 외각의 몬스터가 7마리를 넘으면 곧포수준 한단계 업
+        // 외각의 몬스터가 7마리를 넘으면 공포수준 한단계 업
         if (num >= 7)
         {
             TerrorLevel.instance.TerrorLevelUp();

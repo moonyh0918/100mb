@@ -9,7 +9,7 @@ public class MaincameraController : MonoBehaviour
     public Vector3 MouseStart;
     public GameObject target;
 
-    private Character characterCont;
+    private Character character;
     private Vector3 offset;
 
     public static MaincameraController instance = null;
@@ -23,7 +23,7 @@ public class MaincameraController : MonoBehaviour
     {
         target = GameObject.Find("character");
 
-        characterCont = target.GetComponent<Character>();
+        character = FindObjectOfType<Character>();
 
         offset = transform.position - target.transform.position;
     }
@@ -31,37 +31,35 @@ public class MaincameraController : MonoBehaviour
     // LateUpdate에서 GetComponent<> 사용 x, 변수에 저장해서 쓰는 형식으로 바꿈 
     void LateUpdate()
     {
-        
-        if (characterCont.characterState == Character.State.MOVE && GameManager.instance.gameState !=GameManager.GameState.finalbattle)
+        // 이동 단계 때 캐릭터를 따라다님
+        if (character.characterState == Character.State.MOVE && GameManager.instance.gameState !=GameManager.GameState.finalbattle)
             transform.position = target.transform.position + offset;
-        else if (characterCont.movingDirection == 1)
-            transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-
-        /*if (Character.instance.characterState == Character.State.MOVE || GameManager.instance.gameState == GameManager.GameState.Encounter)
-        {
-            transform.position = target.transform.position + offset;
-        }
-        */
-        moveObject();
-        if (GameManager.instance.gameState == GameManager.GameState.Mythos && GameManager.instance.gameState != GameManager.GameState.finalbattle)
+        // 신화 단계 때 이동중인 몬스터를 따라다님
+        else if (GameManager.instance.gameState == GameManager.GameState.Mythos && GameManager.instance.gameState != GameManager.GameState.finalbattle)
         {
             transform.position = target.transform.position + offset;
         }
 
+
+        CameraMoveByDrag();
     }
 
-    public void SetPosition(Vector3 pos)
+    // 타켓이 특정 장소로 한번에 이동한 경우 카메라도 한번에 타켓에게 이동 
+    public void SetPosition( )
     {
-        transform.position = pos + offset;
+        Debug.Log("SetPosition" + target.transform.position);
+        transform.position = target.transform.position + offset;
     }
 
+    // 따라갈 타켓 변경
     public void ChangeTarget(GameObject _target)
     {
         target = _target;
     }
-    void moveObject()
-    {
 
+
+    private void CameraMoveByDrag()
+    {
         if (Input.GetMouseButtonDown(1))
         {
             MouseStart = new Vector3(Input.mousePosition.x, transform.position.y, Input.mousePosition.y);
@@ -78,6 +76,7 @@ public class MaincameraController : MonoBehaviour
 
         }
 
+        // 마우스 휠에 따른 카메라 줌인, 줌 아웃 기능 비활성화
         /*
         else
         {

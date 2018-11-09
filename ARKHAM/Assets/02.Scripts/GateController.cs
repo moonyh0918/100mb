@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 
 public class GateController : MonoBehaviour {
+    //////////////////  대문자 진짜 디진다 
     public GameObject AbyssGate;
     public GameObject CeleanoGate;
     public GameObject DementionGate;

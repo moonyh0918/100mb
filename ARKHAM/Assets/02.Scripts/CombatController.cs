@@ -51,8 +51,9 @@ public class CombatController : MonoBehaviour {
         {
             Debug.Log("회피체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
             character.DamagedStamina(monster.staminaDamage);
-            // 전투 or 도망 선택  UI출력   전투버튼클릭시 FearCheck호출,   도망 버튼 클릭시 EvassionCheck호출 
+            CombatUI.instance.UdpatePlayerUI();
 
+            // Damage를 입고 나서 캐릭터의 상태를 파악, 체력이 0이면 FAINT(실신)상태이므로 전투종료
             if (Character.instance.characterState != Character.State.FAINT)
                 CombatUI.instance.CombatUIActive(true);
             else
@@ -76,6 +77,7 @@ public class CombatController : MonoBehaviour {
         {
             Debug.Log("공포체크 실패, " + monster.sanityDamage + "만큼 정신피해를 입습니다");
             character.DamagedSanity(monster.sanityDamage);
+            CombatUI.instance.UdpatePlayerUI();
         }
         else
             Debug.Log("공포체크 성공 ");
@@ -123,18 +125,14 @@ public class CombatController : MonoBehaviour {
     {
         if (successCount >= monster.hp)
         {
-            Debug.Log("승리");
-
             StartCoroutine(PlayerWin());
-            character.SumMonsterHP += monster.hp;
-            Destroy(monster.gameObject);
-            character.currentMoveCount = character.maxMoveCount;
         }
         else
         {
             Debug.Log("전투체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
-            character.currentMoveCount = character.maxMoveCount;
+
             character.DamagedStamina(monster.staminaDamage);
+            CombatUI.instance.UdpatePlayerUI();
 
             if (Character.instance.characterState != Character.State.FAINT)
                 CombatUI.instance.CombatUIActive(true);
@@ -149,9 +147,15 @@ public class CombatController : MonoBehaviour {
         CombatUI.instance.CombatUIActive(false);
         CombatUI.instance.CombatAnimUIActive(true);
 
-        // 몬스터를 플레리어 인벤토리로 이동, 몬스터 컨트롤러 리스트에서 Remove하면서 필드에서 삭제 
+        // 플레이어는 전투를 통해 몬스터를 죽였다면, 몬스터HP만큼 트로피획득
+        character.SumMonsterHP += monster.hp;
 
+        MonsterController.instance.MonsterDie(monster);
 
+        // 이동단계 때 전투에서 승리시 남은 이동력만큼 마저 이동 가능 
+        character.currentMoveCount = character.maxMoveCount;
+
+        // 애니메이션이 완료 된 후 Panel 비활성화를 위해 잠시 대기 
         CombatUI.instance.PlayerWinAnim();
         yield return new WaitForSeconds(3.0f);
         FinishCombat();
@@ -174,8 +178,9 @@ public class CombatController : MonoBehaviour {
 
         combatCamera.SetActive(false);
         mainCamera.SetActive(true);
+        MaincameraController.instance.SetPosition();
 
-        // 애니메이션 초기화 
+        // UI초기화 
         CombatUI.instance.FinishCombatAnim();
 
         CombatUI.instance.CombatUIActive(false);

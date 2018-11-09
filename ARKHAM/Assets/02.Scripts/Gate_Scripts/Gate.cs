@@ -16,7 +16,7 @@ public class Gate : MonoBehaviour {
 
     private void Start()
     {
-        Transform gateInfoPanel = GameObject.Find("GateInfoPanel").transform.GetChild(0);
+        Transform gateInfoPanel = GameObject.Find("GateInfo").transform.GetChild(0);
         showGateInfo = gateInfoPanel.GetComponent<ShowGateInfo>();
     }
 
@@ -58,9 +58,6 @@ public class Gate : MonoBehaviour {
                 DiceController.instance.SealGateSetDice(this, Character.instance.characterFight, Character.instance.MinDiceSucc, 6);
                 break;
         }
-
-        
-
     }
 
     public virtual void SealGateResulte(int successCount)

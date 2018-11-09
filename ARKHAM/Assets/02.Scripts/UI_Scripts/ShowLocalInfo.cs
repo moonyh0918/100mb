@@ -21,13 +21,13 @@ public class ShowLocalInfo : MonoBehaviour {
 
     public void UpdateInfoUI(Local local)
     {
+        // 마우스커서가 Street에 위치할 경우는 InfoUI를 띄워줄 필요 없음
         if (local.local_Id % 10 != 0)
         {
-            
             nameText.text = local.name;
             encounterText.text = local.localFunction;
         }
-        if(local.local_Id % 10 == 0)
+        else
         {
             gameObject.SetActive(false);
         }

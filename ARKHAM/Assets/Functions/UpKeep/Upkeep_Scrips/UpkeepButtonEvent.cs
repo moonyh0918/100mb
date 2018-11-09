@@ -87,8 +87,6 @@ public class UpkeepButtonEvent : MonoBehaviour {
         Vector3 parentvector = parentOj.transform.position;
         Transform childOj;
 
-        Debug.Log(Character.instance.CharacterInventory.Count);
-
         if (0 < Character.instance.CharacterInventory.Count)
         {
             for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
