@@ -155,6 +155,7 @@ public class Character : MonoBehaviour
             Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
             LocalEventController.instance.InOtherWold();
             transform.position = OtherWorld.position; //다른세계로 날려보내기
+            GateController.instance.CharacterInGate = other.GetComponent<Gate>();
         }
         else if(other.CompareTag("Gate") && specialLocalCheck)
         {

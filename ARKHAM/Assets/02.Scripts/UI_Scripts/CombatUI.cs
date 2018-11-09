@@ -32,7 +32,9 @@ public class CombatUI : MonoBehaviour {
 
     public void SetCombatUI(Monster mon)
     {
-        monsterImage.sprite = Resources.Load<Sprite>("MonsterImages/" + mon);
+        Debug.Log(mon.name);
+        Debug.Log(mon.ToString());
+        //monsterImage.sprite = Resources.Load<Sprite>("MonsterImages/" + mon);
         monStamina.fillAmount = mon.hp / 10.0f;
         monStat.text = "공포수준 : " + mon.fearLevel + " 전투수준 : " + mon.combatLevel +" 회피 : " + mon.evasionLevel;
         monDamage.text = "체력피해 : " + mon.staminaDamage +" 정신피해 : " +  mon.sanityDamage;

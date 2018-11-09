@@ -93,9 +93,10 @@ public class UpkeepButtonEvent : MonoBehaviour {
         {
             for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
             {
-                childOj = Instantiate(InventoryCard,showPotition+new Vector3(i*24,0,0) /*new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z)*/, Quaternion.identity, parentOj);
+                childOj = Instantiate(InventoryCard,showPotition+new Vector3(i*50,0,0) /*new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z)*/, Quaternion.identity, parentOj);
                 childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
                 childOj.GetComponent<ItemCard>().ItemName = Character.instance.CharacterInventory[i].ItemName;
+                childOj.GetComponentInChildren<Text>().text = Character.instance.CharacterInventory[i].ItemText;
 
             }
 

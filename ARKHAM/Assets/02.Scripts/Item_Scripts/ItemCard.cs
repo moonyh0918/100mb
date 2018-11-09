@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemCard : MonoBehaviour {
 
+    public GameObject popItemImae;
+
     public Image alphcahge;
     public enum ItemKind { CommonItem, UniquItem, Spell };
     public ItemKind itemkind;
@@ -34,6 +36,7 @@ public class ItemCard : MonoBehaviour {
     private void Awake()
     {
         instance = this;
+        popItemImae = GameObject.FindGameObjectWithTag("popCardimage");
     }
 
     public virtual void ItemFuntion()
@@ -44,20 +47,32 @@ public class ItemCard : MonoBehaviour {
     }
 
     //알파값 조작 코드 안되서 물어보기용
-   /* public void Alphchange()
+    /* public void Alphchange()
+     {
+
+         Image imageAlph;
+         //imageAlph = GetComponent<Image>();
+
+         if (useCheck)
+         {
+             //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 1.0f);
+         }
+         else
+         {
+             //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 0.0f);
+         }
+     }*/
+
+    private void OnMouseEnter( )
     {
-
-        Image imageAlph;
-        //imageAlph = GetComponent<Image>();
-    
-        if (useCheck)
-        {
-            //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 1.0f);
-        }
-        else
-        {
-            //alphcahge.color = new Color(imageAlph.r, imageAlph.g, imageAlph.b, 0.0f);
-        }
-    }*/
-
+        Debug.Log("온 마우스 아이템 ");
+        popItemImae.SetActive(true);
+        popItemImae.GetComponent<Image>().sprite = ItemImage;
+        popItemImae.GetComponentInChildren<Text>().text = ItemText;
+    }
+    private void OnMouseExit()
+    {
+        Debug.Log("온 엑자일 아이템 ");
+        popItemImae.SetActive(false);
+    }
 }

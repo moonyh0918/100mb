@@ -23,6 +23,8 @@ public class GateController : MonoBehaviour {
 
     public Gate CharacterInGate;
 
+    public GameObject MainButton;
+
     public static GateController instance = null;
 
     private void Awake()
@@ -30,10 +32,10 @@ public class GateController : MonoBehaviour {
         instance = this;
         GateDeck = new List<GameObject>();
 
+        GateDeck.Add(DreamLandGate);
         GateDeck.Add(AbyssGate);
         GateDeck.Add(CeleanoGate);
         GateDeck.Add(DementionGate);
-        GateDeck.Add(DreamLandGate);
         GateDeck.Add(GreatRaceGate);
         GateDeck.Add(PlateauOfLengGate);
         GateDeck.Add(RlyehGate);
@@ -126,6 +128,7 @@ public class GateController : MonoBehaviour {
 
     public void CloseGateBtn(int n)
     {
+        Debug.Log("게이트 봉인 스텟 선택");
         CloseGatePanel.SetActive(false);
         CharacterInGate.ClosesGateCheck(n);
     }
@@ -135,5 +138,10 @@ public class GateController : MonoBehaviour {
     {
         SealGatePanel.SetActive(false);
         CharacterInGate.SealbuttonCheck(n);
+        MainButton.SetActive(true);
+    }
+    public void SetMainButtonOn()
+    {
+        MainButton.SetActive(true);
     }
 }

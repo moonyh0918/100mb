@@ -65,6 +65,8 @@ public class Gate : MonoBehaviour {
 
     public virtual void SealGateResulte(int successCount)
     {
+        Debug.Log("닫기 시도 결과");
+        Debug.Log(successCount);
         if (successCount > 0)
         {
             if(Character.instance.clue > 4)
@@ -72,9 +74,15 @@ public class Gate : MonoBehaviour {
                 Debug.Log("봉인 여부 선택");
                 GateController.instance.SealPanel();      
             }
-            
+            else
+            {
+                GateController.instance.SetMainButtonOn();
+            }
         }
-
+        else
+        {
+            Debug.Log("실패");
+        }
     }
 
     public void SealbuttonCheck(int n)

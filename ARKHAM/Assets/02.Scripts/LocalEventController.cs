@@ -69,7 +69,7 @@ public class LocalEventController : MonoBehaviour {
     // 지역 조우 패널 활성화
     public void LocalEnCounterStep()
     {
-
+        Character.instance.currentMoveCount = Character.instance.maxMoveCount;
         //차원문이 있을시 조우단계에서 차원문 닫기 패널 활성화
         if (Character.instance.specialLocalCheck)
         {

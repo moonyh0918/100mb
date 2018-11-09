@@ -93,13 +93,28 @@ public class CombatController : MonoBehaviour {
 
         // UI변경
 
+        /*
         // 물리저항
 
+        if(monster.sAttribute.Contains(Monster.SAttribute.PhysicalResist))
+        {
+            character.CharacterpowerOfWeapon /= 2;
+        }
         // 물리면역
-
+        if (monster.sAttribute.Contains(Monster.SAttribute.PhysicalImmunity))
+        {
+            character.CharacterpowerOfWeapon = 0;
+        }
         // 마법저항
-
+        if (monster.sAttribute.Contains(Monster.SAttribute.MagicalResist))
+        {
+            character.CharacterpowerOfMagic /= 2;
+        }
         // 마법면역
+        if (monster.sAttribute.Contains(Monster.SAttribute.MagicalImmunity))
+        {
+            character.CharacterpowerOfMagic = 0;
+        }*/
         DiceController.instance.SetDice(character.CombatCheck + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
     }
 
@@ -110,12 +125,15 @@ public class CombatController : MonoBehaviour {
         {
             Debug.Log("승리");
 
-            StartCoroutine(PlayerWin());  
+            StartCoroutine(PlayerWin());
+            character.SumMonsterHP += monster.hp;
+            Destroy(monster.gameObject);
+            character.currentMoveCount = character.maxMoveCount;
         }
         else
         {
             Debug.Log("전투체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
-
+            character.currentMoveCount = character.maxMoveCount;
             character.DamagedStamina(monster.staminaDamage);
 
             if (Character.instance.characterState != Character.State.FAINT)

@@ -40,6 +40,10 @@ public class CardBuyEvent : MonoBehaviour {
             ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
             ItemPanel2.GetComponent<Image>().sprite = Drowcard[1].ItemImage;
             ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
+
+            ItemPanel1.GetComponentInChildren<Text>().text = Drowcard[0].ItemText;
+            ItemPanel2.GetComponentInChildren<Text>().text = Drowcard[1].ItemText;
+            ItemPanel3.GetComponentInChildren<Text>().text = Drowcard[2].ItemText;
         }
         if(num==2)
         {
@@ -47,6 +51,10 @@ public class CardBuyEvent : MonoBehaviour {
             ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
             ItemPanel2.GetComponent<Image>().sprite = Drowcard[1].ItemImage;
             ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
+
+            ItemPanel1.GetComponentInChildren<Text>().text = Drowcard[0].ItemText;
+            ItemPanel2.GetComponentInChildren<Text>().text = Drowcard[1].ItemText;
+            ItemPanel3.GetComponentInChildren<Text>().text = Drowcard[2].ItemText;
         }
 
         if(num==3)//마법

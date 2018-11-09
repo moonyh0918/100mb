@@ -18,7 +18,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public enum GameState {Setting,Upkeep, Move, Encounter, Mythos}
+    public enum GameState {Setting,Upkeep, Move, Encounter, Mythos, finalbattle}
     public GameState gameState;
 
     public GameStateUI gameSateUI;

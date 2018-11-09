@@ -12,7 +12,7 @@ public class Local_CuriositleS : Local {
         allowLocal_Id[0] = 00;
 
         position = transform.position;
-        localFunction = "특별카드 3장을 뽑고 원하는 카드는 금액을 지불하고 구입가능하다";
+        localFunction = "특별 아이템 3장을 뽑은 다음 그중 1장을 액면가를 지불하고 살 수 있습니다. 나머지 2장은 카드더미 밑에 넣습니다.";
     }
 
 

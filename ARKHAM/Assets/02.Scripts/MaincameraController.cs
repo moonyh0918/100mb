@@ -32,7 +32,7 @@ public class MaincameraController : MonoBehaviour
     void LateUpdate()
     {
         
-        if (characterCont.characterState == Character.State.MOVE)
+        if (characterCont.characterState == Character.State.MOVE && GameManager.instance.gameState !=GameManager.GameState.finalbattle)
             transform.position = target.transform.position + offset;
         else if (characterCont.movingDirection == 1)
             transform.Translate(Vector3.up * Time.deltaTime, Space.World);
@@ -43,7 +43,7 @@ public class MaincameraController : MonoBehaviour
         }
         */
         moveObject();
-        if (GameManager.instance.gameState == GameManager.GameState.Mythos)
+        if (GameManager.instance.gameState == GameManager.GameState.Mythos && GameManager.instance.gameState != GameManager.GameState.finalbattle)
         {
             transform.position = target.transform.position + offset;
         }

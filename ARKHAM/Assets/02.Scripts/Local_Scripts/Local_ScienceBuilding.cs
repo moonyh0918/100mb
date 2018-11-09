@@ -98,7 +98,11 @@ public class Local_ScienceBuilding : Local {
                 break;
             case 1:
                 if (successCount == 0)
+                {
                     Character.instance.characterStamina += 1;
+                    if (Character.instance.characterStamina > Character.instance.MaxStamina)
+                        Character.instance.characterStamina = Character.instance.MaxcharacterStamina;
+                }
                 else if (successCount > 0)
                     DiceController.instance.SetDiceThrow(this, 1, 1, 6);
                 break;

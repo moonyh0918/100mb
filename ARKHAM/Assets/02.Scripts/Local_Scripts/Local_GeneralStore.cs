@@ -10,6 +10,8 @@ public class Local_GeneralStore : Local {
         allowLocal_Id[0] = 40;
 
         position = transform.position;
+
+        localFunction = "일반 아이템 카드 3장을 뽑은 다음 그중 1장을 액면가를 지불하고 살 수 있습니다. 나머지 2장은 카드더미 밑에 넣습니다.";
     }
 
 

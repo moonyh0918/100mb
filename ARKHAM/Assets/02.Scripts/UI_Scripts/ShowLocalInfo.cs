@@ -23,8 +23,13 @@ public class ShowLocalInfo : MonoBehaviour {
     {
         if (local.local_Id % 10 != 0)
         {
+            
             nameText.text = local.name;
             encounterText.text = local.localFunction;
+        }
+        if(local.local_Id % 10 == 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

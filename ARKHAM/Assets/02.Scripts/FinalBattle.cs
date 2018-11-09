@@ -12,6 +12,7 @@ public class FinalBattle : MonoBehaviour {
     public GameObject FinalBattlePanel;
     public GameObject OtherPanel;
 
+    public GameStateUI gameSateUI;
 
     public enum BattlePhase { UpKeep,CharacterPhaseSelect, CharacterAttack, BossPhase }
     public BattlePhase phase = BattlePhase.UpKeep;
@@ -37,7 +38,7 @@ public class FinalBattle : MonoBehaviour {
         if (doomTrack == bossDoomtrack)
         {
             //아자토스 보스 전투 안함
-
+            GameManager.instance.gameState = GameManager.GameState.finalbattle;
             Debug.Log(GameObject.FindGameObjectWithTag("Boss").ToString());
             if (GameObject.FindGameObjectWithTag("Boss").ToString() == "Boss_Azathoth(Clone) (UnityEngine.GameObject)")
             {
@@ -46,6 +47,8 @@ public class FinalBattle : MonoBehaviour {
                 return;
             }
             //GameObject.FindGameObjectWithTag("Boss").ToString();
+            gameSateUI.gameObject.SetActive(true);
+            gameSateUI.UpdateStateUI("마지막 전투");
             Debug.Log("마지막 전투 패널 활성화 나머지 비활성화");
             OtherPanel.SetActive(false);
             Boss.instance.StartOfBattle();
@@ -67,6 +70,8 @@ public class FinalBattle : MonoBehaviour {
         {
             case BattlePhase.UpKeep:
                 Debug.Log("CharacterPhase");
+                gameSateUI.gameObject.SetActive(true);
+                gameSateUI.UpdateStateUI("전투 설정 단계");
                 CharacterPhase();
                 break;
             case BattlePhase.CharacterPhaseSelect:
@@ -75,10 +80,13 @@ public class FinalBattle : MonoBehaviour {
                 break;
             case BattlePhase.CharacterAttack:
                 Debug.Log("BossPhase");
+
                 BossPhase();
                 break;
             case BattlePhase.BossPhase:
                 Debug.Log("UpKeep");
+                gameSateUI.gameObject.SetActive(true);
+                gameSateUI.UpdateStateUI("유지단계");
                 UpKeep();
                 break;
            
@@ -103,7 +111,7 @@ public class FinalBattle : MonoBehaviour {
         Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
         Vector3 parentvector = parentOj.transform.position;
 
-        UpkeepButtonEvent.instance.ShowInventory(new Vector3(parentvector.x - 70 + (1 * 24), parentvector.y, parentvector.z));
+        UpkeepButtonEvent.instance.ShowInventory(new Vector3(parentvector.x - 380, parentvector.y, parentvector.z));
         phase = BattlePhase.CharacterPhaseSelect;
     }
 
@@ -120,12 +128,16 @@ public class FinalBattle : MonoBehaviour {
     public void BossPhase()
     {
         Debug.Log("보스전투");
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("보스 공격 : " + Boss.instance.misscombate + "체크" + Boss.instance.CombatCheck);
         Boss.instance.BossAttack();
         phase = BattlePhase.BossPhase;
     }
 
     public void AttackResult(int succ)
     {
+        gameSateUI.gameObject.SetActive(true);
+        gameSateUI.UpdateStateUI("보스 데미지 : " + succ+ "남은 보스 체력 : " + Boss.instance.BossDoomTrack);
         Debug.Log("보스 데미지 : "+succ);
         Boss.instance.BossDoomTrack -= succ;
         Debug.Log("남은 보스 체력 : "+ Boss.instance.BossDoomTrack);

@@ -24,7 +24,7 @@ public class MonsterDictionary : MonoBehaviour {
 
         // 추종자
         name = "Cultist";
-        monsterMap.Add(name, new Monster(name, 1, 0, 1, 1, 0, -3, Monster.Type.Fly, Monster.Simbol.Moon, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, 0, 1, 1, 0, -3, Monster.Type.Normal, Monster.Simbol.Moon, sAttribute));
 
         // 차원에서 휘청대는자
         name = "DimensionalShambler";

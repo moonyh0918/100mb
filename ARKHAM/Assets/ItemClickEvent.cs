@@ -16,6 +16,7 @@ public class ItemClickEvent : MonoBehaviour {
 	void Update () {
 		
 	}
+    
 
     void TaskOnClick()
     {
