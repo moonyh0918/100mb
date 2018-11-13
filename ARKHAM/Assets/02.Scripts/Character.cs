@@ -12,35 +12,35 @@ public class Character : MonoBehaviour
 
     /////////////////////////  변수 이름 소문자 시작,    프로퍼티는 대문자 시작을 전부 바꿔놓기
     //캐릭터스텟
-    public int Sanity;
-    public int characterSanity { get { return Sanity; } set { Sanity = value; } }
-    public int MaxSanity;
-    public int MaxcharacterSanity { get { return MaxSanity; } set { MaxSanity = value; } }
-    public int Stamina;
-    public int characterStamina { get { return Stamina; } set { Stamina = value; } }
-    public int MaxStamina;
-    public int MaxcharacterStamina { get { return MaxStamina; } set { MaxStamina = value; } }
+    public int sanity;
+    public int characterSanity { get { return sanity; } set { sanity = value; } }
+    public int maxSanity;
+    public int MaxcharacterSanity { get { return maxSanity; } set { maxSanity = value; } }
+    public int stamina;
+    public int characterStamina { get { return stamina; } set { stamina = value; } }
+    public int maxStamina;
+    public int MaxcharacterStamina { get { return maxStamina; } set { maxStamina = value; } }
 
-    public int Speed;
-    public int characterSpeed { get { return Speed; } set { Speed = value; } }
+    public int speed;
+    public int characterSpeed { get { return speed; } set { speed = value; } }
     public int Sneak;
     public int characterSneak { get { return Sneak ; } set { Sneak = value; } }
 
-    public int Fight;
-    public int characterFight { get { return Fight; } set {  Fight= value; } }
-    public int Will;
-    public int characterWILL { get { return Will; } set { Will = value; } }
+    public int fight;
+    public int characterFight { get { return fight; } set { fight = value; } }
+    public int will;
+    public int characterWILL { get { return will; } set { will = value; } }
 
-    public int Lore;
-    public int characterLore { get { return Lore; } set {  Lore = value; } }
-    public int Luck;
-    public int characterLuck { get { return Luck; } set { Luck = value; } }
+    public int lore;
+    public int characterLore { get { return lore; } set { lore = value; } }
+    public int luck;
+    public int characterLuck { get { return luck; } set { luck = value; } }
 
-    public int MaxFocus;
-    public int Focus;
-    public int characterFocus { get { return Focus; } set {  Focus = value; } }
+    public int maxFocus;
+    public int focus;
+    public int characterFocus { get { return focus; } set { focus = value; } }
 
-    public int MinDiceSucc = 5;
+    public int minDiceSucc = 5;
 
 
     //소지품
@@ -71,9 +71,9 @@ public class Character : MonoBehaviour
     public int evade;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
     public int CharacterEvadeCheck { get { return evade + Sneak; } set { evade = value; } }
     public int characterHorrorCheck;    //공포체크(의지+공포체크)
-    public int HorrorCheck { get { return Will + characterHorrorCheck; } set { characterHorrorCheck = value; } } //공포
+    public int HorrorCheck { get { return will + characterHorrorCheck; } set { characterHorrorCheck = value; } } //공포
     public int characterCombatCheck;    //토탈
-    public int CombatCheck { get { return powerOfWeapon + powerOfMagic + Fight + characterCombatCheck; } set { characterCombatCheck = value; } } //투지+무기 수치
+    public int CombatCheck { get { return powerOfWeapon + powerOfMagic + fight + characterCombatCheck; } set { characterCombatCheck = value; } } //투지+무기 수치
     
     //이동 관련
     public int maxMoveCount;  //이동가능 횟수
@@ -167,17 +167,17 @@ public class Character : MonoBehaviour
 
     public void DamagedSanity(int damage)
     {
-        Sanity -= damage;
+        sanity -= damage;
 
-        if (Sanity <= 0)
+        if (sanity <= 0)
             DieCuzSanity();
     }
 
     public void DamagedStamina(int damage)
     {
-        Stamina -= damage;
+        stamina -= damage;
 
-        if (Stamina <= 0)
+        if (stamina <= 0)
             DieCuzStamina();
     }
 
@@ -186,7 +186,7 @@ public class Character : MonoBehaviour
     {
         Debug.Log("체력이 0이하가 되어 죽음");
 
-        Stamina = 1;
+        stamina = 1;
 
         Local localAsylum = GameObject.FindObjectOfType<Local_Asylum>();
 
@@ -197,7 +197,7 @@ public class Character : MonoBehaviour
     {
         Debug.Log("정신력이 0이하가 되어 죽음");
 
-        Sanity = 1;
+        sanity = 1;
 
         Local localHospitol = GameObject.FindObjectOfType<Local_STMarysHos>();
 

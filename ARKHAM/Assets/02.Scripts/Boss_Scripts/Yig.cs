@@ -35,8 +35,8 @@ public class Yig : Boss {
     public override void StartOfBattle() //보스 전투 시작전 체크
     {
         Debug.Log("저주가 적용됨(이미 저주 받았을 경우 먹힘)");
-        Character.instance.MinDiceSucc += 1;
-        if(Character.instance.MinDiceSucc>6)
+        Character.instance.minDiceSucc += 1;
+        if(Character.instance.minDiceSucc > 6)
         {
             Destroy(GameObject.FindGameObjectWithTag("Player"));
         }
@@ -46,7 +46,7 @@ public class Yig : Boss {
     {
         //int Checknum;
         Debug.Log("공격 시 속도(+1)체크를 통과할 것. 실패시 체력 1과 정신력 1을 잃는다. 이 체크 수정치는 매 턴마다 1씩 감소한다.");
-        DiceController.instance.SetDiceThrowBoss((Character.instance.characterSpeed + CombatCheck), Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrowBoss((Character.instance.characterSpeed + CombatCheck), Character.instance.minDiceSucc, 6);
         
     }
 

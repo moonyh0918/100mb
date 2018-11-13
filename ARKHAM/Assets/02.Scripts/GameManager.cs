@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     {
         gameState = GameState.Setting;
         //RandomBoss();
-        SettingSystem.instance.SheetSetting();    
+        SettingController.instance.SheetSetting();    
     }
 
 
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour {
         gameSateUI.gameObject.SetActive(true);
         gameSateUI.UpdateStateUI("신 화 단 계");
 
-        SettingSystem.instance.EndSetting();
+        SettingController.instance.EndSetting();
     }
 
 

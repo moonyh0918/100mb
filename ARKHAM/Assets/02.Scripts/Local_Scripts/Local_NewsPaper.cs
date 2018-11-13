@@ -33,7 +33,7 @@ public class Local_NewsPaper : Local {
     {
         activeEvent = 3;
         eventText = "이전 신문을 뒤적거리다가, 당신의 이름으로 시작하는 비밀 광고를 발견하고 깜짝 놀랐습니다. 이를 읽어 보니 아컴을 위협하는 것들에 대한 여러 가지 비밀 암호가 포함되어 있음을 발견할 수 있습니다. 지식 체크(-1)를 합니다. 성공하면 단서 마커 3개를 얻습니다.";
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLore-1), Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLore-1), Character.instance.minDiceSucc, 6);
 
     }
 

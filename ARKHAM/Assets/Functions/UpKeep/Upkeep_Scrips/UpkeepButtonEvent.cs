@@ -50,7 +50,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
 
         ShowInventory(new Vector3(parentvector.x - 70, parentvector.y, parentvector.z));
         
-        Character.instance.characterFocus = Character.instance.MaxFocus;
+        Character.instance.characterFocus = Character.instance.maxFocus;
 
         
 
@@ -112,15 +112,14 @@ public class UpkeepButtonEvent : MonoBehaviour {
             Character.instance.money += 1;
             DiceController.instance.SetDice(1,1,1,DiceController.Use.Retainer);      
         }
-        if(Character.instance.MinDiceSucc==4)
+        if(Character.instance.minDiceSucc == 4)
         {
             GameObject tempblessPanel = Instantiate(BlessPanel, GameObject.Find("Canvas").transform);
             Destroy(tempblessPanel.gameObject, 1.0f);
-            Debug.Log("축복 체크");
             DiceController.instance.SetDice(1, 1, 1, DiceController.Use.Bless);
 
         }
-        else if(Character.instance.MinDiceSucc==6)
+        else if(Character.instance.minDiceSucc == 6)
         {
             GameObject tempcursePanel = Instantiate(CursePanel, GameObject.Find("Canvas").transform);
             Destroy(tempcursePanel.gameObject, 1.0f);
@@ -140,7 +139,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
         {
             GameObject tempfailePanel = Instantiate(failePanel, GameObject.Find("Canvas").transform);
             Destroy(tempfailePanel.gameObject, 1.0f);
-            Character.instance.MinDiceSucc = 5;
+            Character.instance.minDiceSucc = 5;
         }
         else
         {

@@ -66,7 +66,6 @@
     <Compile Include="Assets\02.Scripts\Boss_Scripts\Cthulhu.cs" />
     <Compile Include="Assets\02.Scripts\Boss_Scripts\Yig.cs" />
     <Compile Include="Assets\02.Scripts\CameraMoveZone.cs" />
-    <Compile Include="Assets\02.Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\Character.cs" />
     <Compile Include="Assets\02.Scripts\Clue.cs" />
     <Compile Include="Assets\02.Scripts\CombatController.cs" />
@@ -146,7 +145,7 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
-    <Compile Include="Assets\02.Scripts\SettingSystem.cs" />
+    <Compile Include="Assets\02.Scripts\SettingController.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\GameStart.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\SelectBoss.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\SelectCharacter.cs" />
@@ -159,12 +158,14 @@
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_RiverTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_SouthSide.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_UpTown.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\AllMenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\AnotherWorldUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossCombatCheck.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossCombatRating.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossDefense.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossHP.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossNameText.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfMagic.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfWeapon.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterTotalCombat.cs" />

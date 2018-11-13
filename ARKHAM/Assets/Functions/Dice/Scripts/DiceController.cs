@@ -180,7 +180,6 @@ public class DiceController : MonoBehaviour
     void CallResultFunction()
     {
         int successCoutn = CountSuccess();
-        Debug.Log("성공한 주사위" + successCoutn);
 
         switch (use)
         {
@@ -235,7 +234,6 @@ public class DiceController : MonoBehaviour
 
     void ResetDice()
     {
-        Debug.Log("RestDoce - Destroy All Dice");
         valueCount = 0;
 
         for (int i = 0; i < diceValues.Length; i++)

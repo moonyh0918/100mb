@@ -121,7 +121,7 @@ public class FinalBattle : MonoBehaviour {
         FinalBattlePanel.SetActive(false);
 
         Debug.Log(Character.instance.CombatCheck + Boss.instance.BossCombatRating);
-        DiceController.instance.SetDice(Character.instance.CombatCheck+Boss.instance.BossCombatRating,Character.instance.MinDiceSucc,6,DiceController.Use.FinalBattle);
+        DiceController.instance.SetDice(Character.instance.CombatCheck+Boss.instance.BossCombatRating,Character.instance.minDiceSucc, 6,DiceController.Use.FinalBattle);
         phase = BattlePhase.CharacterAttack;
     }
 

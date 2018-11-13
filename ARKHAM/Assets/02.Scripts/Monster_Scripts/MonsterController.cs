@@ -43,7 +43,6 @@ public class MonsterController : MonoBehaviour {
         instanceMon.CopyValue(ref dictionaryMon);
         instanceMon.name = instanceMon.name + number;
 
-        Debug.Log(instanceMon.name);
         // 이미지를 Resources파일에서 가져옴
         Texture monsterTexture = Resources.Load<Texture>("MonsterImages/" + instanceMon.id);
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;
@@ -53,20 +52,6 @@ public class MonsterController : MonoBehaviour {
         number++;
     }
 
-
-    //차원문 충돌 시 몬스터 출현 함수 
-    // 충돌난 곳부터 몬스터를 생성,  그후엔 랜덤으로 
-    public void AAA()
-    {
-        /* 대충 이런 릐양스 
-        Gate[] gates = FindObjectsOfType<Gate>();
-
-        for (int i = 0; i < gates.Length; i++)
-        {
-            CreateMonster(gates[i].createdLocal);
-        }
-        */
-    }
 
     public IEnumerator MoveOneByOne(List<Monster.Simbol> simbol, MonsterMoveController.Color color)
     {
@@ -98,7 +83,7 @@ public class MonsterController : MonoBehaviour {
     }
 
     public void MonsterDie(Monster mon)
-    {
+    { 
         // id값으로 하면 같은종류의 몬스터가 필드에있을때 엉뚱한 몬스터가 사라질수 있으므로 +number를 붙인 name으로 검색 
         Monster resultMon = monsters.Find(item => item.name == mon.name);
         monsters.Remove(resultMon);

@@ -24,14 +24,14 @@ public class Local_Dimention : Local
     {
         activeEvent = 1;
         eventText = "지하 세계의 절벽을 기어오르는 중에 주머니가 어딘가에 걸려 찢어졌습니다. 속도 체크(-1)를 합니다. 실패하면 가지고 있는 돈을 모두 잃습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterSpeed - 1, Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.characterSpeed - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventTwo()
     {
         activeEvent = 2;
         eventText = "화산이 폭발하였습니다. 속도 체크(-1)를 합니다. 실패하면 체력 3을 잃습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterSpeed - 1, Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.characterSpeed - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventThree()

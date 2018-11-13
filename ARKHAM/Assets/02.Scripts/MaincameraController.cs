@@ -47,7 +47,6 @@ public class MaincameraController : MonoBehaviour
     // 타켓이 특정 장소로 한번에 이동한 경우 카메라도 한번에 타켓에게 이동 
     public void SetPosition( )
     {
-        Debug.Log("SetPosition" + target.transform.position);
         transform.position = target.transform.position + offset;
     }
 

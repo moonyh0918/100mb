@@ -25,7 +25,7 @@ public class Local_Yuggoth : Local
     {
         activeEvent = 1;
         eventText = "검고 눈먼 고기로 가득 찬 작고 빛나는 연못 옆에서 쉬고 있습니다. 행운 체크 (-1)를 합니다. 성공하면 물속에서 일반적이지 않은 물건을 발견하여 낚아챕니다. 특별 아이템 카드 1장과 $3을 얻습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck - 1, Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventTwo()
@@ -46,7 +46,7 @@ public class Local_Yuggoth : Local
     {
         activeEvent = 4;
         eventText = "행운 체크 (-1)을 합니다. 실패하면 마치 거대한 생물의 발톱에 의해 새겨진 것처럼 기이한 표식을 가진 수많은 산을 대면합니다. 세계가 당신을 휘감고 있습니다. 정신력 3을 잃습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck - 1, Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventFive()

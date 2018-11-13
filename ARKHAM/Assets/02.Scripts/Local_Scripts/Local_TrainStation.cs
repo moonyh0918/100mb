@@ -28,7 +28,7 @@ public class Local_TrainStation : Local {
     {
         activeEvent = 2;
         eventText = "보스턴발 열차에서 터번을 둘러쓰고 얼굴에서 광기가 엄치는 한 사람이 내렸습니다. 행운 체크(-1)를 합니다. 성공하면 그가 망토 속에서 기이한 물건 하나를 꺼내 당신에게 건네줍니다. 특별 아이템 카드 1장을 얻습니다. 실패하면 그는 갑자기 망토 속에서 독을 바른 칼날을 꺼내 당신을 찌릅니다. 주사위 1개를 굴려 나온 값만큼 체력을 잃습니다.";
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck - 1), Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck - 1), Character.instance.minDiceSucc, 6);
 
 
     }

@@ -51,11 +51,11 @@ public class Gate : MonoBehaviour {
         {
             //지식체크
             case 0:
-                DiceController.instance.SealGateSetDice(this, Character.instance.characterLore, Character.instance.MinDiceSucc, 6);
+                DiceController.instance.SealGateSetDice(this, Character.instance.characterLore, Character.instance.minDiceSucc, 6);
                 break;
             //투지체크
             case 1:
-                DiceController.instance.SealGateSetDice(this, Character.instance.characterFight, Character.instance.MinDiceSucc, 6);
+                DiceController.instance.SealGateSetDice(this, Character.instance.characterFight, Character.instance.minDiceSucc, 6);
                 break;
         }
     }
@@ -98,13 +98,11 @@ public class Gate : MonoBehaviour {
 
     }
 
-
-    //차원문과 멀어지면 탐사완료 마크 사라짐
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+       if(other.CompareTag("MONSTER"))
         {
-            Character.instance.specialLocalCheck = false;
+            this.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -115,11 +113,20 @@ public class Gate : MonoBehaviour {
             showGateInfo.gameObject.SetActive(true);
             showGateInfo.UpdateInfoUI(this);
         }
-
     }
 
     private void OnMouseExit()
     {
         showGateInfo.gameObject.SetActive(false);
+    }
+
+    public void GateColliderAct()
+    {
+        Transform parent = gameObject.transform.parent;
+        
+        if (parent.GetComponentInChildren<Monster>() == null)
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 }

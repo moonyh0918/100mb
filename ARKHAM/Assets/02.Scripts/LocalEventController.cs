@@ -90,7 +90,6 @@ public class LocalEventController : MonoBehaviour {
             */
             eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
 
-            Debug.Log(eventLocal.tag);
             if (eventLocal.tag == "LOCAL")
             {
 
@@ -145,9 +144,7 @@ public class LocalEventController : MonoBehaviour {
 
                 localEncounterPanel.SetActive(true);
                 break;
-
         }
-
     }
 
     
@@ -234,14 +231,6 @@ public class LocalEventController : MonoBehaviour {
         eventLocal.ActiveEvent(7);
     }
 
-    /*
-    // 이벤트 카드 내 세부설명 Text 변경
-    public void SetMessage(string eventText)
-    {
-        eventMessage.text = eventText;
-    }
-    */
-
 
     //상점 아이템 구입 이벤트
     // 버튼 클릭시 캐릭터의 지역id값ㅇ로 지역판별, 지역에 따른 다른 이벤트 발생 
@@ -298,25 +287,19 @@ public class LocalEventController : MonoBehaviour {
 
     public void SelectLocalEventBtn(int n)
     {
-        Debug.Log(tempLocal);
-        Debug.Log(n);
-
         switch (n)
         {
             case 1:
-                Debug.Log(i);
                 SelectLocalEventPanel.SetActive(false);
                 tempLocal.ActiveEvent(i);
                 tempLocal = null;i = 0;j = 0;k = 0;
                 break;
             case 2:
-                Debug.Log(j);
                 SelectLocalEventPanel.SetActive(false);
                 tempLocal.ActiveEvent(j);
                 tempLocal = null; i = 0; j = 0; k = 0;
                 break;
             case 3:
-                Debug.Log(k);
                 SelectLocalEventPanel.SetActive(false);
                 tempLocal.ActiveEvent(k);
                 tempLocal = null; i = 0; j = 0; k = 0;

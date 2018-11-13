@@ -12,7 +12,7 @@ public class AllQuitInArkham : Mythos {
    
     public override void OccurEvent()
     {
-        DiceController.instance.SetDice(this, Character.instance.Luck - 1, Character.instance.MinDiceSucc, 6);
+        DiceController.instance.SetDice(this, Character.instance.luck - 1, Character.instance.minDiceSucc, 6);
     }
 
     public override void EventResult(int successCount)

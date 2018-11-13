@@ -26,8 +26,8 @@ public class Cthulhu : Boss {
     public override void BossAbility()   //필드에 영향을 주는 능력
     {
         Debug.Log("최대 정신력과 최대 체력이 1씩 줄어든다.");
-        Character.instance.MaxSanity -= 1;
-        Character.instance.MaxStamina -= 1;
+        Character.instance.maxSanity -= 1;
+        Character.instance.maxStamina -= 1;
         Character.instance.characterSanity -= 1;
         Character.instance.characterStamina -= 1;
 

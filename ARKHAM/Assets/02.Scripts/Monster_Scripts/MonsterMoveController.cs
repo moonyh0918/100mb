@@ -262,9 +262,9 @@ public class MonsterMoveController : MonoBehaviour {
         {
             //Debug.Log(this.name + "    Distance : "  + Vector3.Distance(goalPosition, transform.position) + "   currentPosition : " + transform.position + "    GoalPosition : " + goalPosition);
 
-            transform.position = Vector3.MoveTowards(transform.position, goalPosition, 5.0f * Time.deltaTime); //현재 캐릭터 정보에있는 위치와 이동해야될 위치를 보고 직선으로 이동 
+            transform.position = Vector3.MoveTowards(transform.position, goalPosition, 10.0f * Time.deltaTime); //현재 캐릭터 정보에있는 위치와 이동해야될 위치를 보고 직선으로 이동 
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         monster.transform.SetParent(goalLocal.transform);

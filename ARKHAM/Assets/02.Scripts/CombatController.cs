@@ -37,7 +37,7 @@ public class CombatController : MonoBehaviour {
 
         //character.EvasionCheck(monster.evasionLevel);
 
-        DiceController.instance.SetDice(character.CharacterEvadeCheck + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
+        DiceController.instance.SetDice(character.CharacterEvadeCheck + monster.evasionLevel, Character.instance.minDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
     public void EvasionCheckResult(int successCount)
@@ -68,7 +68,7 @@ public class CombatController : MonoBehaviour {
         // UI 변경 
         CombatUI.instance.CombatUIActive(false);
 
-        DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
+        DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, Character.instance.minDiceSucc, 6, DiceController.Use.FearCheck);     
     }
 
     public void FearCheckResult(int successCount)
@@ -117,7 +117,7 @@ public class CombatController : MonoBehaviour {
         {
             character.CharacterpowerOfMagic = 0;
         }*/
-        DiceController.instance.SetDice(character.CombatCheck + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
+        DiceController.instance.SetDice(character.CombatCheck + monster.combatLevel, Character.instance.minDiceSucc, 6, DiceController.Use.CombatCheck);
     }
 
 
@@ -185,5 +185,9 @@ public class CombatController : MonoBehaviour {
 
         CombatUI.instance.CombatUIActive(false);
         CombatUI.instance.CombatAnimUIActive(false);
+
+        // 전투 종료 후 차원문의 콜라이더 컴포넌트를 활성화 할지 결정 (만약 몬스터가 더 있다면 계속 전투 해야 하므로 차원문의 콜라이더는 꺼져있어야한다.)
+        Local combatLocal = Local.GetLocalObjById(character.currentLocal_Id);
+        combatLocal.GetComponentInChildren<Gate>().GateColliderAct();
     }
 }

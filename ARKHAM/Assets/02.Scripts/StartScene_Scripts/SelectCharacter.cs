@@ -51,10 +51,10 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.characterLore = 1;
         Characterset.characterLuck = 4;
 
-        Characterset.MaxFocus = 3;
+        Characterset.maxFocus = 3;
         Characterset.characterFocus = 3;
 
-        Characterset.MinDiceSucc = 5;
+        Characterset.minDiceSucc = 5;
 
         Characterset.money = 1;
         Characterset.clue = 1;
@@ -86,10 +86,10 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.characterLore = 0;
         Characterset.characterLuck = 3;
 
-        Characterset.MaxFocus = 1;
+        Characterset.maxFocus = 1;
         Characterset.characterFocus = 1;
 
-        Characterset.MinDiceSucc = 5;
+        Characterset.minDiceSucc = 5;
 
         Characterset.money = 1;
         Characterset.clue = 3;
@@ -117,10 +117,10 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.characterLore = 0;
         Characterset.characterLuck = 4;
 
-        Characterset.MaxFocus = 1;
+        Characterset.maxFocus = 1;
         Characterset.characterFocus = 1;
 
-        Characterset.MinDiceSucc = 5;
+        Characterset.minDiceSucc = 5;
 
         Characterset.money = 9;
         Characterset.clue = 0;
