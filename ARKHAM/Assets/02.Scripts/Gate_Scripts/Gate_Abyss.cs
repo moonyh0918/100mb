@@ -10,7 +10,7 @@ public class Gate_Abyss : Gate {
         OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Hexagon;
         Modifier = -2;
-        GateImage = Resources.Load<Sprite>("GateImages/TheAbyss");
+        gateImage = Resources.Load<Sprite>("gateImages/TheAbyss");
     }
 
 }

@@ -28,7 +28,7 @@ public class Local_Administration : Local {
     {
         activeEvent = 2;
         eventText = "대학 총장에게 논문 하나를 팔 기회를 얻었습니다. 지식 체크(-1)를 합니다. 성공하면 논문을 팔고 5$를 얻습니다.";
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLore-1), Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, (Character.instance.CharacterLore-1), Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventThree()

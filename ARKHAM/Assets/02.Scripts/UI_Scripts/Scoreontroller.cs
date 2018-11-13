@@ -82,10 +82,10 @@ public class Scoreontroller : MonoBehaviour {
 
     public void ScoreSetting()
     {
-        GateTrophy = Character.instance.GateNum;
-        MonsterHP = Character.instance.SumMonsterHP;
+        GateTrophy = Character.instance.gateNum;
+        MonsterHP = Character.instance.sumMonsterHpNum;
         BossHp = FinalBattle.instance.doomTrack-Boss.instance.BossDoomTrack;
-        ItemAmount = Character.instance.CharacterInventory.Count;
+        ItemAmount = Character.instance.characterInventory.Count;
         Clue = Character.instance.clue;
         Basic = FinalBattle.instance.doomTrack-TerrorLevel.instance.terrorlevel;
 

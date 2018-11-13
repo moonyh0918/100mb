@@ -5,76 +5,76 @@ using UnityEngine;
 public class UpkeepController1 : MonoBehaviour {
 
     private int Speed1 = 0;
-    private int Sneak1 = 0;
+    private int sneak1 = 0;
 
     private int Speed2 = 0;
-    private int Sneak2 = 0;
+    private int sneak2 = 0;
 
     private int Speed3 = 0;
-    private int Sneak3 = 0;
+    private int sneak3 = 0;
 
     private int Speed4 = 0;
-    private int Sneak4 = 0;
+    private int sneak4 = 0;
 
 
     private void Start()
     {
-        Speed1 = Character.instance.characterSpeed;
-        Sneak1 = Character.instance.characterSneak;
+        Speed1 = Character.instance.CharacterSpeed;
+        sneak1 = Character.instance.CharacterSneak;
 
         Speed2 = Speed1+1;
-        Sneak2 = Sneak1-1;
+        sneak2 = sneak1-1;
 
         Speed3 = Speed1+2;
-        Sneak3 = Sneak1+2;
+        sneak3 = sneak1+2;
 
         Speed4 = Speed1+3;
-        Sneak4 = Sneak1-3;
+        sneak4 = sneak1-3;
     }
 
     public void SpeedPos1(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Speed1 -Character.instance.characterSpeed))
+        if (1 == Mathf.Abs(Speed1 -Character.instance.CharacterSpeed))
         {
-            OnClickMove(rt,Speed1,Sneak1);
+            OnClickMove(rt,Speed1,sneak1);
         }
     }
     public void SpeedPos2(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Speed2 - Character.instance.characterSpeed))
+        if (1 == Mathf.Abs(Speed2 - Character.instance.CharacterSpeed))
         {
-            OnClickMove(rt, Speed2, Sneak2);
+            OnClickMove(rt, Speed2, sneak2);
         }
     }
     public void SpeedPos3(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Speed3 - Character.instance.characterSpeed))
+        if (1 == Mathf.Abs(Speed3 - Character.instance.CharacterSpeed))
         {
-            OnClickMove(rt, Speed3, Sneak3);
+            OnClickMove(rt, Speed3, sneak3);
         }
     }
 
     public void SpeedPos4(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Speed4 - Character.instance.characterSpeed))
+        if (1 == Mathf.Abs(Speed4 - Character.instance.CharacterSpeed))
         {
-            OnClickMove(rt, Speed4, Sneak4);
+            OnClickMove(rt, Speed4, sneak4);
         }
     }
 
     public void OnClickMove(RectTransform rt, int num1, int num2)
     {
 
-        if (Character.instance.characterFocus > 0)
+        if (Character.instance.CharacterFocus > 0)
         {
             this.transform.position = rt.transform.position;
-            GameObject.FindWithTag("Player").GetComponent<Character>().characterFocus--;
-            Character.instance.characterSpeed = num1;
-            Character.instance.characterSneak = num2;
+            GameObject.FindWithTag("Player").GetComponent<Character>().CharacterFocus--;
+            Character.instance.CharacterSpeed = num1;
+            Character.instance.CharacterSneak = num2;
         }
     }
 }

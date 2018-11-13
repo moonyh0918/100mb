@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NowHp : MonoBehaviour {
 
-    private Text HP;
+public class NowHp : MonoBehaviour
+{
+
+    private Text hp;
+    public static NowHp instance = null;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
-        HP = GetComponent<Text>();
-        HP.text = Character.instance.characterStamina.ToString();
+        hp = GetComponent<Text>();
+        hp.text = Character.instance.CharacterStamina.ToString();
     }
-
-    /////////////////////////  Ui변경은 Update()에 넣지 말고 변경되는 경우에만 함수호출 하라고   
-    void Update()
+    public void PopHpUi()
     {
-        HP.text = Character.instance.characterStamina.ToString();
+        hp.text = Character.instance.CharacterStamina.ToString();
 
     }
 }

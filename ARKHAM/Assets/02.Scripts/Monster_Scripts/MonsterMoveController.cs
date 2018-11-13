@@ -119,17 +119,17 @@ public class MonsterMoveController : MonoBehaviour {
             }
 
             // 거리에 조사자가 있다면 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
-            Character lowSneakChar = streetCharacter[0];
+            Character lowsneakChar = streetCharacter[0];
 
             for (int i = 0; i < streetCharacter.Count; i++)
             {
-                if (streetCharacter[i].Sneak < lowSneakChar.Sneak)
-                    lowSneakChar = streetCharacter[i];
+                if (streetCharacter[i].sneak < lowsneakChar.sneak)
+                    lowsneakChar = streetCharacter[i];
             }
 
-            goalLocal = Local.GetLocalObjById(lowSneakChar.currentLocal_Id);
+            goalLocal = Local.GetLocalObjById(lowsneakChar.currentLocal_Id);
 
-            Debug.Log(monster + " 하늘에서 거리에있는 " + lowSneakChar + "에게로 이동합니다");
+            Debug.Log(monster + " 하늘에서 거리에있는 " + lowsneakChar + "에게로 이동합니다");
 
             // 하늘에서 이동이므로 MoveToward가 아닌 바로이동 
             monster.transform.position = new Vector3(goalLocal.position.x, 1.2f, goalLocal.position.z - 3.0f);

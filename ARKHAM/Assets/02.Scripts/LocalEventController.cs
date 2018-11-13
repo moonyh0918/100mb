@@ -45,7 +45,7 @@ public class LocalEventController : MonoBehaviour {
     public GameObject SelectLocalEventPanel;
 
     ///////////////////////////////// 뭔데 변수이름 이따구야 이게 뭐하는 변순지 어찌알어 
-    private int i, j, k;
+    private int randomEventNum1, randomEventNum2, randomEventNum3;
     private Local tempLocal;
 
     void Awake()
@@ -255,31 +255,31 @@ public class LocalEventController : MonoBehaviour {
         switch(num)
         {
             case 1:
-                i = Random.Range(1, 3);
+                randomEventNum1 = Random.Range(1, 3);
                 SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(true);
-                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
+                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum1];
                 SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(false);
                 SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(false);
                 break;
             case 2:
 
                 SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(false);
-                j = Random.Range(1, 3);
+                randomEventNum2 = Random.Range(1, 3);
                 SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(true);
-                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
-                k = Random.Range(1, 3);
+                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum2];
+                randomEventNum3 = Random.Range(1, 3);
                 SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(true);
-                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
+                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum3];
                 break;
             case 3:
-                i = Random.Range(1, 3);
-                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
+                randomEventNum1 = Random.Range(1, 3);
+                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum1];
                 SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(true);
-                j = Random.Range(1, 3);
-                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
+                randomEventNum2 = Random.Range(1, 3);
+                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum2];
                 SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(true);
-                k = Random.Range(1, 3);
-                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
+                randomEventNum3 = Random.Range(1, 3);
+                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[randomEventNum3];
                 SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(true);
                 break;
         }
@@ -291,18 +291,18 @@ public class LocalEventController : MonoBehaviour {
         {
             case 1:
                 SelectLocalEventPanel.SetActive(false);
-                tempLocal.ActiveEvent(i);
-                tempLocal = null;i = 0;j = 0;k = 0;
+                tempLocal.ActiveEvent(randomEventNum1);
+                tempLocal = null; randomEventNum1 = 0; randomEventNum2 = 0; randomEventNum3 = 0;
                 break;
             case 2:
                 SelectLocalEventPanel.SetActive(false);
-                tempLocal.ActiveEvent(j);
-                tempLocal = null; i = 0; j = 0; k = 0;
+                tempLocal.ActiveEvent(randomEventNum2);
+                tempLocal = null; randomEventNum1 = 0; randomEventNum2 = 0; randomEventNum3 = 0;
                 break;
             case 3:
                 SelectLocalEventPanel.SetActive(false);
-                tempLocal.ActiveEvent(k);
-                tempLocal = null; i = 0; j = 0; k = 0;
+                tempLocal.ActiveEvent(randomEventNum3);
+                tempLocal = null; randomEventNum1 = 0; randomEventNum2 = 0; randomEventNum3 = 0;
                 break;
         }
     }
@@ -311,7 +311,7 @@ public class LocalEventController : MonoBehaviour {
     {
         Debug.Log("실행");
         //얻은 몬스터가 없거나 게이트가 없을경우 경고문
-        if (Character.instance.SumMonsterHP < 5 && Character.instance.GateNum < 1)
+        if (Character.instance.sumMonsterHpNum < 5 && Character.instance.gateNum < 1)
         {
             localEncounterPanel.SetActive(true);
             GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
@@ -330,9 +330,9 @@ public class LocalEventController : MonoBehaviour {
     {
         if(num==0)
         {
-            if (Character.instance.SumMonsterHP > 4)
+            if (Character.instance.sumMonsterHpNum > 4)
             {
-                Character.instance.SumMonsterHP -= 5;
+                Character.instance.sumMonsterHpNum -= 5;
                 Character.instance.clue += 2;
                 sciencebildingselectPanel.SetActive(false);
             }
@@ -345,9 +345,9 @@ public class LocalEventController : MonoBehaviour {
         }
         if (num == 1)
         {
-            if (Character.instance.GateNum > 0)
+            if (Character.instance.gateNum > 0)
             {
-                Character.instance.GateNum -= 1;
+                Character.instance.gateNum -= 1;
                 Character.instance.clue += 2;
                 sciencebildingselectPanel.SetActive(false);
             }

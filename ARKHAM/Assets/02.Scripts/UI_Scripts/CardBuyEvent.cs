@@ -81,7 +81,7 @@ public class CardBuyEvent : MonoBehaviour {
         if(Character.instance.money>Drowcard[num].price)
         {
             Character.instance.money -= Drowcard[num].price;
-            Character.instance.CharacterInventory.Add(Drowcard[num]);
+            Character.instance.characterInventory.Add(Drowcard[num]);
             
             EventPanel.SetActive(false);
             LocalEventController.instance.NextButtonSet();

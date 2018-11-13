@@ -60,9 +60,9 @@ public class CombatUI : MonoBehaviour {
          */
 
 
-        charStamina.fillAmount = Character.instance.characterStamina / 10.0f;
-        charSanity.fillAmount = Character.instance.characterSanity / 10.0f;
-        charStat.text = "투지 : " + Character.instance.characterFight + " 의지 : " + Character.instance.characterWILL + " 은둔 : " + Character.instance.characterSneak;
+        charStamina.fillAmount = Character.instance.CharacterStamina / 10.0f;
+        charSanity.fillAmount = Character.instance.CharacterSanity / 10.0f;
+        charStat.text = "투지 : " + Character.instance.CharacterFight + " 의지 : " + Character.instance.CharacterWill + " 은둔 : " + Character.instance.CharacterSneak;
 
         mainButtonPanel.SetActive(false);
         combatAnimPanel.SetActive(false);
@@ -110,7 +110,7 @@ public class CombatUI : MonoBehaviour {
     // 체력, 정신력 잃을때 파괴 되는 애니메이션을 넣을려면 하나씩 생성, 삭제시 애니메이션 재생
     public void UdpatePlayerUI()
     {
-        charStamina.fillAmount = Character.instance.characterStamina / 10.0f;
-        charSanity.fillAmount = Character.instance.characterSanity / 10.0f;
+        charStamina.fillAmount = Character.instance.CharacterStamina / 10.0f;
+        charSanity.fillAmount = Character.instance.CharacterSanity / 10.0f;
     }
 }

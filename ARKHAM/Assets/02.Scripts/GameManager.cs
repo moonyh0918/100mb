@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour {
 
     public void GameSetting()
     {
+        NowPhase.instance.PopNowPhase();
         gameState = GameState.Mythos;
         gameSateUI.gameObject.SetActive(true);
         gameSateUI.UpdateStateUI("신 화 단 계");
@@ -94,7 +95,8 @@ public class GameManager : MonoBehaviour {
 
 
     public void UpkeepState()
-    { 
+    {
+        NowPhase.instance.PopNowPhase();
         MythosController.instance.MythosStateEnd();
    
         gameState = GameState.Upkeep;
@@ -102,12 +104,14 @@ public class GameManager : MonoBehaviour {
         gameSateUI.UpdateStateUI("유 지 단 계");
 
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
-        UpkeepButtonEvent.instance.RetainerAndBless();
+        UpkeepButtonEvent.instance.retainerAndBless();
     }
 
 
     public void MoveState()
     {
+        NowPhase.instance.PopNowPhase();
+
         gameState = GameState.Move;
         gameSateUI.gameObject.SetActive(true);
         gameSateUI.UpdateStateUI("이 동 단 계");
@@ -122,6 +126,7 @@ public class GameManager : MonoBehaviour {
     public void EncounterState()
     {
         // 이동 단계 UI 비활성화 함수 호출  
+        NowPhase.instance.PopNowPhase();
 
         gameState = GameState.Encounter;
         gameSateUI.gameObject.SetActive(true);
@@ -133,6 +138,7 @@ public class GameManager : MonoBehaviour {
 
     public void MythosState()
     {
+        NowPhase.instance.PopNowPhase();
         //이벤트 화면 비활성화 홈수
         LocalEventController.instance.ExitEvent();
         

@@ -9,6 +9,6 @@ public class Gate_Demention : Gate {
         OpenLocal = GameObject.Find("Demention").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Square;
         Modifier = 0;
-        GateImage = Resources.Load<Sprite>("GateImages/AnotherDimension");
+        gateImage = Resources.Load<Sprite>("gateImages/AnotherDimension");
     }
 }

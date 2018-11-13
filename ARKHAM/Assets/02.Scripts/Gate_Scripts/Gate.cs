@@ -8,7 +8,7 @@ public class Gate : MonoBehaviour {
     public Monster.Simbol GateSimbol;
     public Local OpenLocal;
     public int Modifier;
-    public Sprite GateImage;
+    public Sprite gateImage;
 
     public Monster[] BackMonster;
 
@@ -51,11 +51,11 @@ public class Gate : MonoBehaviour {
         {
             //지식체크
             case 0:
-                DiceController.instance.SealGateSetDice(this, Character.instance.characterLore, Character.instance.minDiceSucc, 6);
+                DiceController.instance.SealGateSetDice(this, Character.instance.CharacterLore, Character.instance.minDiceSucc, 6);
                 break;
             //투지체크
             case 1:
-                DiceController.instance.SealGateSetDice(this, Character.instance.characterFight, Character.instance.minDiceSucc, 6);
+                DiceController.instance.SealGateSetDice(this, Character.instance.CharacterFight, Character.instance.minDiceSucc, 6);
                 break;
         }
     }
@@ -73,7 +73,8 @@ public class Gate : MonoBehaviour {
             }
             else
             {
-                GateController.instance.SetMainButtonOn();
+                CloseGate();
+                GateController.instance.SetmainButtonOn();
             }
         }
         else
@@ -89,7 +90,7 @@ public class Gate : MonoBehaviour {
         {
 
             Character.instance.clue -= 5;
-            Character.instance.GateNum += 1;
+            Character.instance.gateNum += 1;
             seallocal.SealMark = true;
             
         }

@@ -9,7 +9,7 @@ public class CharacterBasic : MonoBehaviour {
 
     void Start () {
         bossHP = GetComponent<Text>();
-        bossHP.text = Character.instance.characterFight.ToString();
+        bossHP.text = Character.instance.CharacterFight.ToString();
     }
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class CharacterBasic : MonoBehaviour {
 
         if (FinalBattle.instance.phase == FinalBattle.BattlePhase.UpKeep)
         {
-            bossHP.text = Character.instance.characterFight.ToString();
+            bossHP.text = Character.instance.CharacterFight.ToString();
         }
     }
 }

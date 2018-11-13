@@ -9581,26 +9581,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca017009ae6edaf439e9233482538bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbyssGate: {fileID: 1883305031385430, guid: 5bd3651a80d43df40aae60d8614bb691, type: 2}
-  CeleanoGate: {fileID: 1403054340186968, guid: 94bd63336539222479dd007859b44e87,
+  abyssGate: {fileID: 1883305031385430, guid: 5bd3651a80d43df40aae60d8614bb691, type: 2}
+  celeanoGate: {fileID: 1403054340186968, guid: 94bd63336539222479dd007859b44e87,
     type: 2}
-  DementionGate: {fileID: 1373459136498906, guid: 697520332c1ac8e4eabf00eb965fb793,
+  dementionGate: {fileID: 1373459136498906, guid: 697520332c1ac8e4eabf00eb965fb793,
     type: 2}
-  DreamLandGate: {fileID: 1671747079049522, guid: 5d75c3816f25f214fb4c078157a411d6,
+  dreamLandGate: {fileID: 1671747079049522, guid: 5d75c3816f25f214fb4c078157a411d6,
     type: 2}
-  GreatRaceGate: {fileID: 1420990962486676, guid: b18f691cfd1573b4f802b365c080b101,
+  greatRaceGate: {fileID: 1420990962486676, guid: b18f691cfd1573b4f802b365c080b101,
     type: 2}
-  PlateauOfLengGate: {fileID: 1831678226646746, guid: d5a59e1ce347748498b95c048d5b91ee,
+  plateauOfLengGate: {fileID: 1831678226646746, guid: d5a59e1ce347748498b95c048d5b91ee,
     type: 2}
-  RlyehGate: {fileID: 1966561203692118, guid: c95a4f3edf0b1014fa41fde9046c22dd, type: 2}
-  YuggoyhGate: {fileID: 1162037920314036, guid: 800fd68c8309da446b18d73013c603ef,
+  rlyehGate: {fileID: 1966561203692118, guid: c95a4f3edf0b1014fa41fde9046c22dd, type: 2}
+  yuggoyhGate: {fileID: 1162037920314036, guid: 800fd68c8309da446b18d73013c603ef,
     type: 2}
-  GateDeck: []
-  CloseGatePanel: {fileID: 1686360379}
-  SealGatePanel: {fileID: 1805842048}
-  GateImage: {fileID: 576033096}
-  CharacterInGate: {fileID: 0}
-  MainButton: {fileID: 634060260}
+  gateDeck: []
+  closeGatePanel: {fileID: 1686360379}
+  sealGatePanel: {fileID: 1805842048}
+  gateImage: {fileID: 576033096}
+  characterInGate: {fileID: 0}
+  mainButton: {fileID: 634060260}
 --- !u!4 &602144553
 Transform:
   m_ObjectHideFlags: 0
@@ -24330,7 +24330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1686360380
 RectTransform:
   m_ObjectHideFlags: 0

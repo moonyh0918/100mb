@@ -9,6 +9,6 @@ public class Gate_Yuggoth : Gate {
         OpenLocal = GameObject.Find("Yuggoth").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Circle;
         Modifier = -2;
-        GateImage = Resources.Load<Sprite>("GateImages/Yuggoth");
+        gateImage = Resources.Load<Sprite>("gateImages/Yuggoth");
     }
 }

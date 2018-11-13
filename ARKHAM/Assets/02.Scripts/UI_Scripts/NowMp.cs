@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NowMp : MonoBehaviour {
+public class NowMp : MonoBehaviour
+{
 
-    private Text MP;
+
+    private Text mp;
+    public static NowMp instance = null;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
-        MP = GetComponent<Text>();
-        MP.text = Character.instance.characterSanity.ToString();
+        mp = GetComponent<Text>();
+        mp.text = Character.instance.CharacterStamina.ToString();
     }
-    void Update()
+    public void PopMpUi()
     {
-        MP.text = Character.instance.characterSanity.ToString();
+        mp.text = Character.instance.CharacterStamina.ToString();
 
     }
 }

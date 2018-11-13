@@ -36,23 +36,23 @@ public class SelectCharacter : MonoBehaviour {
     {
         Characterset.currentLocal_Id = 0;
 
-        Characterset.characterSanity = 5;
-        Characterset.MaxcharacterSanity = 5;
+        Characterset.CharacterSanity = 5;
+        Characterset.MaxCharacterSanity = 5;
 
-        Characterset.characterStamina = 5;
-        Characterset.MaxcharacterStamina = 5;
+        Characterset.CharacterStamina = 5;
+        Characterset.MaxCharacterStamina = 5;
 
-        Characterset.characterSpeed = 1;
-        Characterset.characterSneak = 4;
+        Characterset.CharacterSpeed = 1;
+        Characterset.CharacterSneak = 4;
 
-        Characterset.characterFight = 1;
-        Characterset.characterWILL = 4;
+        Characterset.CharacterFight = 1;
+        Characterset.CharacterWill = 4;
 
-        Characterset.characterLore = 1;
-        Characterset.characterLuck = 4;
+        Characterset.CharacterLore = 1;
+        Characterset.CharacterLuck = 4;
 
         Characterset.maxFocus = 3;
-        Characterset.characterFocus = 3;
+        Characterset.CharacterFocus = 3;
 
         Characterset.minDiceSucc = 5;
 
@@ -71,23 +71,23 @@ public class SelectCharacter : MonoBehaviour {
     {
         Characterset.currentLocal_Id = 1;
 
-        Characterset.characterSanity = 4;
-        Characterset.MaxcharacterSanity = 4;
+        Characterset.CharacterSanity = 4;
+        Characterset.MaxCharacterSanity = 4;
 
-        Characterset.characterStamina = 6;
-        Characterset.MaxcharacterStamina = 6;
+        Characterset.CharacterStamina = 6;
+        Characterset.MaxCharacterStamina = 6;
 
-        Characterset.characterSpeed = 0;
-        Characterset.characterSneak = 6;
+        Characterset.CharacterSpeed = 0;
+        Characterset.CharacterSneak = 6;
 
-        Characterset.characterFight = 2;
-        Characterset.characterWILL = 5;
+        Characterset.CharacterFight = 2;
+        Characterset.CharacterWill = 5;
 
-        Characterset.characterLore = 0;
-        Characterset.characterLuck = 3;
+        Characterset.CharacterLore = 0;
+        Characterset.CharacterLuck = 3;
 
         Characterset.maxFocus = 1;
-        Characterset.characterFocus = 1;
+        Characterset.CharacterFocus = 1;
 
         Characterset.minDiceSucc = 5;
 
@@ -102,23 +102,23 @@ public class SelectCharacter : MonoBehaviour {
     {
         Characterset.currentLocal_Id = 2;
 
-        Characterset.characterSanity = 4;
-        Characterset.MaxcharacterSanity = 4;
+        Characterset.CharacterSanity = 4;
+        Characterset.MaxCharacterSanity = 4;
 
-        Characterset.characterStamina = 6;
-        Characterset.MaxcharacterStamina = 6;
+        Characterset.CharacterStamina = 6;
+        Characterset.MaxCharacterStamina = 6;
 
-        Characterset.characterSpeed = 2;
-        Characterset.characterSneak = 3;
+        Characterset.CharacterSpeed = 2;
+        Characterset.CharacterSneak = 3;
 
-        Characterset.characterFight = 1;
-        Characterset.characterWILL = 6;
+        Characterset.CharacterFight = 1;
+        Characterset.CharacterWill = 6;
 
-        Characterset.characterLore = 0;
-        Characterset.characterLuck = 4;
+        Characterset.CharacterLore = 0;
+        Characterset.CharacterLuck = 4;
 
         Characterset.maxFocus = 1;
-        Characterset.characterFocus = 1;
+        Characterset.CharacterFocus = 1;
 
         Characterset.minDiceSucc = 5;
 

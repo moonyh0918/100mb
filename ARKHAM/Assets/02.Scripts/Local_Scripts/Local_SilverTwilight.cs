@@ -24,21 +24,21 @@ public class Local_SilverTwilight : Local {
     {
         activeEvent = 1;
         eventText = "칼 스탠포드가 당신을 서재로 데려가 이야기를 하려 합니다. 그의 말을 듣는 동안 무섭고 차가운 기운이 당신을 감쌉니다. 지식 체크(-1)를 합니다. 성공하면 고대 마법사의 시험을 통과하여 뭔가 값진 것을 배울 수 있습니다. 단서 마커 3개를 얻습니다. 실패하면 최면에 빠져 잠이 듭니다. 잠깐 대화한 것 같았지만, 서재를 나왔더니 무척 혼란스러워졋습니다. 가지고 있는 모든 단서 마커를 잃고 프랑스 언더의 거리로 이동합니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLore - 1, Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.CharacterLore - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventTwo()
     {
         activeEvent = 2;
         eventText = "홀에 있는 수상한 물체를 관찰하는 중에 피부가 잡아 당겨지며 꽉 죄이는 느낌을 받았습니다. 행운 체크(-1)를 합니다. 실패하면 저주를 받습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck - 1, Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.CharacterLuck - 1, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventThree()
     {
         activeEvent = 2;
         eventText = "은둔 체크(-2)를 합니다. 성공하면 실버 트와일라이트의 신전에 숨어 들어가서 흥비로운 물건 2개를 발견합니다. 각각의 물품에 대해 주사위를 굴리고 성공한 주사위가 나오면 특별아이템 카드를, 실패한 주사위가 나오면 일반 아이템 카드를 얻습니다. 실패하면 아무일도 일어나지 않습니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterSneak - 2, Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.CharacterSneak - 2, Character.instance.minDiceSucc, 6);
     }
 
     protected override void EventFour()

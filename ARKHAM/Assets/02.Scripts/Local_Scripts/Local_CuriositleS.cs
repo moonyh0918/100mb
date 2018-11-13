@@ -20,7 +20,7 @@ public class Local_CuriositleS : Local {
     {
         activeEvent = 1;
         eventText = "행운 체크(-1)를 합니다. 실패하면 소지품을 잃어버립니다. 아이템 카드 중 1장을 버립니다. 만약 버릴 아이템카드가 없다면 새로운 장소 카드를 뽑아 그 지시에 따릅니다.";
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck-1), Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, (Character.instance.CharacterLuck-1), Character.instance.minDiceSucc, 6);
 
     }
 
@@ -28,7 +28,7 @@ public class Local_CuriositleS : Local {
     {
         activeEvent = 2;
         eventText = "상점 뒤쪽을 어슬렁거리는 중에 뭔가 소음이 들립니다. 속도 체크(-1)를 합니다. 실패하면 당신을 가격하는 몽둥이를 볼 수 있습니다. 눈앞이 캄캄해집니다. 당신이 일어났을 때 다른 곳에 있음을 발견합니다. 신화 카드 1장을 뽑고 카드의 왼쪽아래에 있는 차원문이 발생하는 곳으로 이동합니다. 이곳에서 장소 카드를 뽑아 그 지시를 따릅니다.";
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterSpeed - 1), Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, (Character.instance.CharacterSpeed - 1), Character.instance.minDiceSucc, 6);
 
 
     }

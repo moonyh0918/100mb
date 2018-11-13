@@ -7,50 +7,50 @@ using UnityEngine.UI;
 
 public class GateController : MonoBehaviour {
     //////////////////  대문자 진짜 디진다 
-    public GameObject AbyssGate;
-    public GameObject CeleanoGate;
-    public GameObject DementionGate;
-    public GameObject DreamLandGate;
-    public GameObject GreatRaceGate;
-    public GameObject PlateauOfLengGate;
-    public GameObject RlyehGate;
-    public GameObject YuggoyhGate;
-    public List<GameObject> GateDeck;
+    public GameObject abyssGate;
+    public GameObject celeanoGate;
+    public GameObject dementionGate;
+    public GameObject dreamLandGate;
+    public GameObject greatRaceGate;
+    public GameObject plateauOfLengGate;
+    public GameObject rlyehGate;
+    public GameObject yuggoyhGate;
+    public List<GameObject> gateDeck;
 
 
-    public GameObject CloseGatePanel;
-    public GameObject SealGatePanel;
-    public Image GateImage;
+    public GameObject closeGatePanel;
+    public GameObject sealGatePanel;
+    public Image gateImage;
 
-    public Gate CharacterInGate;
+    public Gate characterInGate;
 
-    public GameObject MainButton;
+    public GameObject mainButton;
 
     public static GateController instance = null;
 
     private void Awake()
     {
         instance = this;
-        GateDeck = new List<GameObject>();
+        gateDeck = new List<GameObject>();
 
-        GateDeck.Add(DreamLandGate);
-        GateDeck.Add(AbyssGate);
-        GateDeck.Add(CeleanoGate);
-        GateDeck.Add(DementionGate);
-        GateDeck.Add(GreatRaceGate);
-        GateDeck.Add(PlateauOfLengGate);
-        GateDeck.Add(RlyehGate);
-        GateDeck.Add(YuggoyhGate);
-        GateDeck.Add(AbyssGate);
-        GateDeck.Add(CeleanoGate);
-        GateDeck.Add(DementionGate);
-        GateDeck.Add(DreamLandGate);
-        GateDeck.Add(GreatRaceGate);
-        GateDeck.Add(PlateauOfLengGate);
-        GateDeck.Add(RlyehGate);
-        GateDeck.Add(YuggoyhGate);
+        gateDeck.Add(dreamLandGate);
+        gateDeck.Add(abyssGate);
+        gateDeck.Add(celeanoGate);
+        gateDeck.Add(dementionGate);
+        gateDeck.Add(greatRaceGate);
+        gateDeck.Add(plateauOfLengGate);
+        gateDeck.Add(rlyehGate);
+        gateDeck.Add(yuggoyhGate);
+        gateDeck.Add(abyssGate);
+        gateDeck.Add(celeanoGate);
+        gateDeck.Add(dementionGate);
+        gateDeck.Add(dreamLandGate);
+        gateDeck.Add(greatRaceGate);
+        gateDeck.Add(plateauOfLengGate);
+        gateDeck.Add(rlyehGate);
+        gateDeck.Add(yuggoyhGate);
 
-        GateDeck = ShuffleList<GameObject>(GateDeck);
+        gateDeck = ShuffleList<GameObject>(gateDeck);
     }
 
     public void OpenGate(string openloacl)
@@ -70,7 +70,7 @@ public class GateController : MonoBehaviour {
         {
             if (!sealMarkCheck.gateOpenCheck)
             {
-                GameObject gateClone = Instantiate(GateDeck[0], parent.transform);
+                GameObject gateClone = Instantiate(gateDeck[0], parent.transform);
                 gateClone.transform.localPosition = new Vector3(0.16f, 0.12f, 2.0f);
 
                 Local otherWold = gateClone.GetComponent<Gate>().OpenLocal;
@@ -86,7 +86,7 @@ public class GateController : MonoBehaviour {
 
                 FinalBattle.instance.DoomTrackCheck();
 
-                GateDeck.RemoveAt(0);
+                gateDeck.RemoveAt(0);
             }
             else if(sealMarkCheck.gateOpenCheck)
             {
@@ -117,32 +117,32 @@ public class GateController : MonoBehaviour {
 
     public void ClosePanel()
     {
-        CloseGatePanel.SetActive(true);
-        GateImage.sprite = CharacterInGate.GateImage;
+        closeGatePanel.SetActive(true);
+        gateImage.sprite = characterInGate.gateImage;
 
     }
     public void SealPanel()
     {
-        SealGatePanel.SetActive(true);
+        sealGatePanel.SetActive(true);
     }
 
 
     public void CloseGateBtn(int n)
     {
         Debug.Log("게이트 봉인 스텟 선택");
-        CloseGatePanel.SetActive(false);
-        CharacterInGate.ClosesGateCheck(n);
+        closeGatePanel.SetActive(false);
+        characterInGate.ClosesGateCheck(n);
     }
 
  
     public void SealGateBten(int n)
     {
-        SealGatePanel.SetActive(false);
-        CharacterInGate.SealbuttonCheck(n);
-        MainButton.SetActive(true);
+        sealGatePanel.SetActive(false);
+        characterInGate.SealbuttonCheck(n);
+        mainButton.SetActive(true);
     }
-    public void SetMainButtonOn()
+    public void SetmainButtonOn()
     {
-        MainButton.SetActive(true);
+        mainButton.SetActive(true);
     }
 }

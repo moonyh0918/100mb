@@ -13,32 +13,32 @@ public class Character : MonoBehaviour
     /////////////////////////  변수 이름 소문자 시작,    프로퍼티는 대문자 시작을 전부 바꿔놓기
     //캐릭터스텟
     public int sanity;
-    public int characterSanity { get { return sanity; } set { sanity = value; } }
+    public int CharacterSanity { get { return sanity; } set { sanity = value; } }
     public int maxSanity;
-    public int MaxcharacterSanity { get { return maxSanity; } set { maxSanity = value; } }
+    public int MaxCharacterSanity { get { return maxSanity; } set { maxSanity = value; } }
     public int stamina;
-    public int characterStamina { get { return stamina; } set { stamina = value; } }
+    public int CharacterStamina { get { return stamina; } set { stamina = value; } }
     public int maxStamina;
-    public int MaxcharacterStamina { get { return maxStamina; } set { maxStamina = value; } }
+    public int MaxCharacterStamina { get { return maxStamina; } set { maxStamina = value; } }
 
     public int speed;
-    public int characterSpeed { get { return speed; } set { speed = value; } }
-    public int Sneak;
-    public int characterSneak { get { return Sneak ; } set { Sneak = value; } }
+    public int CharacterSpeed { get { return speed; } set { speed = value; } }
+    public int sneak;
+    public int CharacterSneak { get { return sneak ; } set { sneak = value; } }
 
     public int fight;
-    public int characterFight { get { return fight; } set { fight = value; } }
+    public int CharacterFight { get { return fight; } set { fight = value; } }
     public int will;
-    public int characterWILL { get { return will; } set { will = value; } }
+    public int CharacterWill { get { return will; } set { will = value; } }
 
     public int lore;
-    public int characterLore { get { return lore; } set { lore = value; } }
+    public int CharacterLore { get { return lore; } set { lore = value; } }
     public int luck;
-    public int characterLuck { get { return luck; } set { luck = value; } }
+    public int CharacterLuck { get { return luck; } set { luck = value; } }
 
     public int maxFocus;
     public int focus;
-    public int characterFocus { get { return focus; } set { focus = value; } }
+    public int CharacterFocus { get { return focus; } set { focus = value; } }
 
     public int minDiceSucc = 5;
 
@@ -50,16 +50,11 @@ public class Character : MonoBehaviour
     public int nowHand = 0;
 
 
-    public List<ItemCard> CharacterInventory;
-    public int GateNum;
-    public int SumMonsterHP;
+    public List<ItemCard> characterInventory;
+    public int gateNum;
+    public int sumMonsterHpNum;
 
-    public int InitCommonItemNum;
-    public int InitUniqutemNum;
-    public int InitSpellNum;
-    public int InitSkillNum;
-
-    public bool Retainer=false; //보유자산
+    public bool retainer=false; //보유자산
 
 
 
@@ -69,7 +64,7 @@ public class Character : MonoBehaviour
     public int powerOfMagic;   //마법공격력
     public int CharacterpowerOfMagic { get { return powerOfMagic; } set { powerOfMagic = value; } }
     public int evade;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
-    public int CharacterEvadeCheck { get { return evade + Sneak; } set { evade = value; } }
+    public int CharacterEvadeCheck { get { return evade + sneak; } set { evade = value; } }
     public int characterHorrorCheck;    //공포체크(의지+공포체크)
     public int HorrorCheck { get { return will + characterHorrorCheck; } set { characterHorrorCheck = value; } } //공포
     public int characterCombatCheck;    //토탈
@@ -147,7 +142,7 @@ public class Character : MonoBehaviour
         }
             
 
-        if(other.CompareTag("Gate") && !specialLocalCheck)//아컴으로 돌아올때 specialLocalCheck를 true로 줘야함
+        if(other.CompareTag("Gate") && !specialLocalCheck)//specialLocalCheck는 탐사 완료 마커 기능 true일경우 차원무네 빨려가지 않게됨
         {
 
             StopCoroutine(MovingCharacter);
@@ -156,28 +151,49 @@ public class Character : MonoBehaviour
             transform.position = OtherWorld.position; //다른세계로 날려보내기
 
             AnotherWorldUI.instance.InOtherWorld();
-            GateController.instance.CharacterInGate = other.GetComponent<Gate>();
+            GateController.instance.characterInGate = other.GetComponent<Gate>();
         }
         else if(other.CompareTag("Gate") && specialLocalCheck)
         {
-            GateController.instance.CharacterInGate=other.GetComponent<Gate>();
+            GateController.instance.characterInGate=other.GetComponent<Gate>(); //현재 캐릭터가 있는 차원문 정보를 넘겨줌
         }
 
     }
 
+    public void HealSanity(int heal)
+    {
+        CharacterSanity -= heal;
+
+        if (MaxCharacterSanity < CharacterSanity)
+            CharacterSanity = MaxCharacterSanity;
+        NowMp.instance.PopMpUi();
+    }
+    public void HealStamina(int heal)
+    {
+        CharacterStamina -= heal;
+
+        if (MaxCharacterStamina < CharacterStamina)
+            CharacterStamina = MaxCharacterStamina;
+
+        NowHp.instance.PopHpUi();
+
+    }
+
+
     public void DamagedSanity(int damage)
     {
-        sanity -= damage;
-
-        if (sanity <= 0)
+        CharacterSanity -= damage;
+        NowMp.instance.PopMpUi();
+        if (CharacterSanity <= 0)
             DieCuzSanity();
+        
     }
 
     public void DamagedStamina(int damage)
     {
-        stamina -= damage;
-
-        if (stamina <= 0)
+        CharacterStamina -= damage;
+        NowHp.instance.PopHpUi();
+        if (CharacterStamina <= 0)
             DieCuzStamina();
     }
 
@@ -186,8 +202,8 @@ public class Character : MonoBehaviour
     {
         Debug.Log("체력이 0이하가 되어 죽음");
 
-        stamina = 1;
-
+        CharacterStamina = 1;
+        NowHp.instance.PopHpUi();
         Local localAsylum = GameObject.FindObjectOfType<Local_Asylum>();
 
         CharacterDie(localAsylum);
@@ -197,8 +213,8 @@ public class Character : MonoBehaviour
     {
         Debug.Log("정신력이 0이하가 되어 죽음");
 
-        sanity = 1;
-
+        CharacterSanity = 1;
+        NowMp.instance.PopMpUi();
         Local localHospitol = GameObject.FindObjectOfType<Local_STMarysHos>();
 
         CharacterDie(localHospitol);
@@ -232,7 +248,7 @@ public class Character : MonoBehaviour
     public void ItemReset()
     {
         List<ItemCard> result;
-        result =CharacterInventory.FindAll(delegate(ItemCard cards)
+        result =characterInventory.FindAll(delegate(ItemCard cards)
         {
             return cards.useCheck == true;
         }

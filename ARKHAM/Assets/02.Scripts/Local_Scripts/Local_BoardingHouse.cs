@@ -29,7 +29,7 @@ public class Local_BoardingHouse : Local {
     {
         activeEvent = 2;
         eventText = "누군가의 방을 새롭게 칠하려 합니다. 행운 체크(+0)를 합니다. 성공하면 드림랜드로 이동합니다. 드림랜드에서의 조우 하나를 처리하고 즉시 마의 하숙집으로 돌아옵니다. 실패하면 어비스로 이동합니다. 어비스에서의 조우 하나를 처리하고 즉시 마의 하숙집으로 돌아옵니다.";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck, Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.CharacterLuck, Character.instance.minDiceSucc, 6);
         
     }
 
@@ -37,7 +37,7 @@ public class Local_BoardingHouse : Local {
     {
         activeEvent = 3;
         eventText = "이웃에서 계속해서 외쳐대는 통에 꼬박 밤을 새웠습니다. 행운 체크(-1)를 합니다. 실패하면 정신력이나 체력중 하나를 선택하여 1 잃습니다. ";
-        DiceController.instance.SetDiceThrow(this, Character.instance.characterLuck-1, Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrow(this, Character.instance.CharacterLuck-1, Character.instance.minDiceSucc, 6);
        
         
 
@@ -110,9 +110,9 @@ public class Local_BoardingHouse : Local {
     public void threeEventBtn(int i)
     {
         if(i==0)
-            Character.instance.characterSanity -= 1;
+            Character.instance.DamagedSanity(1);
         if(i==1)
-            Character.instance.characterStamina -= 1;
+            Character.instance.DamagedStamina(1);
         SelectPanel.SetActive(false);
     }
 }

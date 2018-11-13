@@ -18,8 +18,8 @@ public class UpkeepController3 : MonoBehaviour {
 
     private void Start()
     {
-        Lore1 = Character.instance.characterLore;
-        Luck1 = Character.instance.characterLuck;
+        Lore1 = Character.instance.CharacterLore;
+        Luck1 = Character.instance.CharacterLuck;
 
         Lore2 = Lore1 + 1;
         Luck2 = Luck1 - 1;
@@ -35,7 +35,7 @@ public class UpkeepController3 : MonoBehaviour {
     public void SpeedPos1(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Lore1 - Character.instance.characterLore))
+        if (1 == Mathf.Abs(Lore1 - Character.instance.CharacterLore))
         {
             OnClickMove(rt, Lore1, Luck1);
         }
@@ -43,7 +43,7 @@ public class UpkeepController3 : MonoBehaviour {
     public void SpeedPos2(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Lore2 - Character.instance.characterLore))
+        if (1 == Mathf.Abs(Lore2 - Character.instance.CharacterLore))
         {
             OnClickMove(rt, Lore2, Luck2);
         }
@@ -51,7 +51,7 @@ public class UpkeepController3 : MonoBehaviour {
     public void SpeedPos3(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Lore3 - Character.instance.characterLore))
+        if (1 == Mathf.Abs(Lore3 - Character.instance.CharacterLore))
         {
             OnClickMove(rt, Lore3, Luck3);
         }
@@ -59,7 +59,7 @@ public class UpkeepController3 : MonoBehaviour {
     public void SpeedPos4(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Lore4 - Character.instance.characterLore))
+        if (1 == Mathf.Abs(Lore4 - Character.instance.CharacterLore))
         {
             OnClickMove(rt, Lore4, Luck4);
         }
@@ -68,12 +68,12 @@ public class UpkeepController3 : MonoBehaviour {
 
     public void OnClickMove(RectTransform rt, int num1, int num2)
     {
-        if (Character.instance.characterFocus > 0)
+        if (Character.instance.CharacterFocus > 0)
         {
             this.transform.position = rt.transform.position;
-            GameObject.FindWithTag("Player").GetComponent<Character>().characterFocus--;
-            Character.instance.characterLore = num1;
-            Character.instance.characterLuck = num2;
+            GameObject.FindWithTag("Player").GetComponent<Character>().CharacterFocus--;
+            Character.instance.CharacterLore = num1;
+            Character.instance.CharacterLuck = num2;
         }
     }
 }

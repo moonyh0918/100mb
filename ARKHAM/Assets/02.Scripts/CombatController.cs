@@ -31,7 +31,7 @@ public class CombatController : MonoBehaviour {
 
     public void EvasionCheck()
     {
-        Debug.Log("EvasionCheck : " + character.CharacterEvadeCheck + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
+        Debug.Log("EvasionCheck : " + character.CharacterEvadeCheck + "(Character sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
 
         CombatUI.instance.CombatUIActive(false);
 
@@ -148,7 +148,7 @@ public class CombatController : MonoBehaviour {
         CombatUI.instance.CombatAnimUIActive(true);
 
         // 플레이어는 전투를 통해 몬스터를 죽였다면, 몬스터HP만큼 트로피획득
-        character.SumMonsterHP += monster.hp;
+        character.sumMonsterHpNum += monster.hp;
 
         MonsterController.instance.MonsterDie(monster);
 
@@ -188,6 +188,6 @@ public class CombatController : MonoBehaviour {
 
         // 전투 종료 후 차원문의 콜라이더 컴포넌트를 활성화 할지 결정 (만약 몬스터가 더 있다면 계속 전투 해야 하므로 차원문의 콜라이더는 꺼져있어야한다.)
         Local combatLocal = Local.GetLocalObjById(character.currentLocal_Id);
-        combatLocal.GetComponentInChildren<Gate>().GateColliderAct();
+        combatLocal.GetComponentInChildren<Gate>().GateColliderAct();   //널값참조남
     }
 }

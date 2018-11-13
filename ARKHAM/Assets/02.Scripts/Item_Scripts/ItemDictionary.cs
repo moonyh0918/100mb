@@ -44,13 +44,13 @@ public class ItemDictionary : MonoBehaviour {
         int num = i;
         if (num == 1)
         {
-            Character.instance.CharacterInventory.Add(CommonItemDeck[0]);
+            Character.instance.characterInventory.Add(CommonItemDeck[0]);
             CommonItemDeck.RemoveAt(0);
 
         }
         if (num == 2)   //특별아이템
         { 
-            Character.instance.CharacterInventory.Add(UniquItemDeck[0]);
+            Character.instance.characterInventory.Add(UniquItemDeck[0]);
             UniquItemDeck.RemoveAt(0);
         }
         //마법 아이템 추가

@@ -34,7 +34,7 @@ public class DiceController : MonoBehaviour
 
     // 주사위의 사용 목적 : 목적에 따라 호출할 Result함수가 다르다.
     //        지역이벤트, 회피체크, 공포체크, 전투 체크,신화체크,보스공격,마지막전투,게이트봉인
-    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent,BossHit,FinalBattle,SealGate,Bless,Retainer}
+    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent,BossHit,FinalBattle,SealGate,Bless,retainer}
     public Use use;
 
     void Update()
@@ -204,8 +204,8 @@ public class DiceController : MonoBehaviour
             case Use.BossHit:
                 Boss.instance.DamegeResult(successCoutn);
                 break;
-            case Use.Retainer:
-                UpkeepButtonEvent.instance.resultRetainer(successCoutn);
+            case Use.retainer:
+                UpkeepButtonEvent.instance.resultretainer(successCoutn);
                 break;
             case Use.Bless:
                 UpkeepButtonEvent.instance.resultBless(successCoutn);

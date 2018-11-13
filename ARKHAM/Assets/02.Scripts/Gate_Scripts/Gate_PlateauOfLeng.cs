@@ -9,6 +9,6 @@ public class Gate_PlateauOfLeng : Gate {
         OpenLocal = GameObject.Find("PlateauOfLeng").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Diamond;
         Modifier = -1;
-        GateImage = Resources.Load<Sprite>("GateImages/PlateauOfLeng");
+        gateImage = Resources.Load<Sprite>("gateImages/PlateauOfLeng");
     }
 }

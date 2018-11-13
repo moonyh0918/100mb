@@ -37,8 +37,8 @@ public class UpkeepButtonEvent : MonoBehaviour {
         upkeepEncounterPanel.SetActive(true);
         cluepanel.GetComponent<Text>().text = Character.instance.clue.ToString();
         moneypanel.GetComponent<Text>().text = Character.instance.money.ToString();
-        tokenpanel1.GetComponent<Text>().text = Character.instance.GateNum.ToString();
-        tokenpanel2.GetComponent<Text>().text = Character.instance.SumMonsterHP.ToString();
+        tokenpanel1.GetComponent<Text>().text = Character.instance.gateNum.ToString();
+        tokenpanel2.GetComponent<Text>().text = Character.instance.sumMonsterHpNum.ToString();
 
 
         //작동 했다 안햇다 해서 주석처리
@@ -50,7 +50,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
 
         ShowInventory(new Vector3(parentvector.x - 70, parentvector.y, parentvector.z));
         
-        Character.instance.characterFocus = Character.instance.maxFocus;
+        Character.instance.CharacterFocus = Character.instance.maxFocus;
 
         
 
@@ -73,9 +73,9 @@ public class UpkeepButtonEvent : MonoBehaviour {
         
         
         upkeepEncounterPanel.SetActive(false);
-        Character.instance.characterFocus = 0;
+        Character.instance.CharacterFocus = 0;
         Character.instance.currentMoveCount = 0;
-        Character.instance.maxMoveCount = Character.instance.characterSpeed;
+        Character.instance.maxMoveCount = Character.instance.CharacterSpeed;
         
     }
 
@@ -87,14 +87,14 @@ public class UpkeepButtonEvent : MonoBehaviour {
         Vector3 parentvector = parentOj.transform.position;
         Transform childOj;
 
-        if (0 < Character.instance.CharacterInventory.Count)
+        if (0 < Character.instance.characterInventory.Count)
         {
-            for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
+            for (int i = 0; i < Character.instance.characterInventory.Count; i++)
             {
                 childOj = Instantiate(InventoryCard,showPotition+new Vector3(i*50,0,0) /*new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z)*/, Quaternion.identity, parentOj);
-                childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
-                childOj.GetComponent<ItemCard>().ItemName = Character.instance.CharacterInventory[i].ItemName;
-                childOj.GetComponentInChildren<Text>().text = Character.instance.CharacterInventory[i].ItemText;
+                childOj.GetComponent<Image>().sprite = Character.instance.characterInventory[i].ItemImage;
+                childOj.GetComponent<ItemCard>().ItemName = Character.instance.characterInventory[i].ItemName;
+                childOj.GetComponentInChildren<Text>().text = Character.instance.characterInventory[i].ItemText;
 
             }
 
@@ -102,15 +102,15 @@ public class UpkeepButtonEvent : MonoBehaviour {
 
     }
 
-    public void RetainerAndBless()
+    public void retainerAndBless()
     {
-        if(Character.instance.Retainer == true)
+        if(Character.instance.retainer == true)
         {
             Debug.Log("보유자산 체크");
             GameObject temponMoneyPanel = Instantiate(onMoneyPanel, GameObject.Find("Canvas").transform);
             Destroy(temponMoneyPanel.gameObject, 1.0f);
             Character.instance.money += 1;
-            DiceController.instance.SetDice(1,1,1,DiceController.Use.Retainer);      
+            DiceController.instance.SetDice(1,1,1,DiceController.Use.retainer);      
         }
         if(Character.instance.minDiceSucc == 4)
         {
@@ -126,11 +126,11 @@ public class UpkeepButtonEvent : MonoBehaviour {
             DiceController.instance.SetDice(1, 1, 1, DiceController.Use.Bless);
         }
     }
-    public void resultRetainer(int dice)
+    public void resultretainer(int dice)
     {
         if (1 == dice)
         {
-            Character.instance.Retainer = false;
+            Character.instance.retainer = false;
         }
     }
     public void resultBless(int dice)

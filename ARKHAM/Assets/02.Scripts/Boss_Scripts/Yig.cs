@@ -46,7 +46,7 @@ public class Yig : Boss {
     {
         //int Checknum;
         Debug.Log("공격 시 속도(+1)체크를 통과할 것. 실패시 체력 1과 정신력 1을 잃는다. 이 체크 수정치는 매 턴마다 1씩 감소한다.");
-        DiceController.instance.SetDiceThrowBoss((Character.instance.characterSpeed + CombatCheck), Character.instance.minDiceSucc, 6);
+        DiceController.instance.SetDiceThrowBoss((Character.instance.CharacterSpeed + CombatCheck), Character.instance.minDiceSucc, 6);
         
     }
 
@@ -60,10 +60,10 @@ public class Yig : Boss {
         else
         {
             Debug.Log("데미지");
-            Character.instance.characterStamina -= 5;
-            Character.instance.characterSanity -= 1;
+            Character.instance.DamagedStamina(5);
+            Character.instance.DamagedSanity(1);
 
-            if(Character.instance.characterSanity<0 || Character.instance.characterStamina < 0)
+            if(Character.instance.CharacterSanity<0 || Character.instance.CharacterStamina < 0)
             {
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
                 Debug.Log("게임끝");

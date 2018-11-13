@@ -21,7 +21,7 @@ public class ItemClickEvent : MonoBehaviour {
     void TaskOnClick()
     {
 
-        var Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().CharacterInventory;
+        var Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().characterInventory;
 
         
         ItemCard CardFuntion = Inventory.Find(x => x.ItemName.Contains(GetComponent<ItemCard>().ItemName));//일단돌아가는데 모르겟슴

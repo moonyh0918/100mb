@@ -19,8 +19,8 @@ public class UpkeepController2 : MonoBehaviour {
 
     private void Start()
     {
-        Fight1 = Character.instance.characterFight;
-        Will1 = Character.instance.characterWILL;
+        Fight1 = Character.instance.CharacterFight;
+        Will1 = Character.instance.CharacterWill;
 
         Fight2 = Fight1 + 1;
         Will2 = Will1 - 1;
@@ -35,7 +35,7 @@ public class UpkeepController2 : MonoBehaviour {
     public void SpeedPos1(RectTransform rt)
     {
 
-        if (1 == Mathf.Abs(Fight1 - Character.instance.characterFight))
+        if (1 == Mathf.Abs(Fight1 - Character.instance.CharacterFight))
         {
             OnClickMove(rt, Fight1, Will1);
         }
@@ -44,7 +44,7 @@ public class UpkeepController2 : MonoBehaviour {
     {
      
 
-        if (1 == Mathf.Abs(Fight2 - Character.instance.characterFight))
+        if (1 == Mathf.Abs(Fight2 - Character.instance.CharacterFight))
         {
             OnClickMove(rt, Fight2, Will2);
         }
@@ -53,7 +53,7 @@ public class UpkeepController2 : MonoBehaviour {
     {
        
 
-        if (1 == Mathf.Abs(Fight3 - Character.instance.characterFight))
+        if (1 == Mathf.Abs(Fight3 - Character.instance.CharacterFight))
         {
             OnClickMove(rt, Fight3, Will3);
         }
@@ -61,19 +61,19 @@ public class UpkeepController2 : MonoBehaviour {
     public void SpeedPos4(RectTransform rt)
     {
         
-        if (1 == Mathf.Abs(Fight4 - Character.instance.characterFight))
+        if (1 == Mathf.Abs(Fight4 - Character.instance.CharacterFight))
         {
             OnClickMove(rt, Fight4, Will4);
         }
     }
     public void OnClickMove(RectTransform rt, int num1, int num2)
     {
-        if (Character.instance.characterFocus > 0)
+        if (Character.instance.CharacterFocus > 0)
         {
             this.transform.position = rt.transform.position;
-            GameObject.FindWithTag("Player").GetComponent<Character>().characterFocus--;
-            Character.instance.characterFight = num1;
-            Character.instance.characterWILL = num2;
+            GameObject.FindWithTag("Player").GetComponent<Character>().CharacterFocus--;
+            Character.instance.CharacterFight = num1;
+            Character.instance.CharacterWill = num2;
         }
     }
 }
