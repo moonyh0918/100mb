@@ -11,6 +11,9 @@ public class CombatUI : MonoBehaviour {
     public GameObject bottomMenuPanel;
     public GameObject mainButtonPanel;
 
+    public GameObject mainCamera;
+    public GameObject combatCamera;
+
     public Image charStamina;
     public Image charSanity;
     public Text charStat;
@@ -22,14 +25,6 @@ public class CombatUI : MonoBehaviour {
     public Text monDamage;
     public Text monAttibute;
     public Text monAbility;
-
-    public static CombatUI instance = null;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
 
     public void SetCombatUI(Monster mon)
     {
@@ -74,6 +69,8 @@ public class CombatUI : MonoBehaviour {
 
         UpkeepButtonEvent.instance.ShowInventory(new Vector3(parentvector.x - 70, parentvector.y, parentvector.z));
 
+        combatCamera.SetActive(true);
+        mainCamera.SetActive(false);
     }
 
 
@@ -89,16 +86,29 @@ public class CombatUI : MonoBehaviour {
 
     public void PlayerWinAnim()
     {
+        combatPanel.SetActive(false);
+        combatAnimPanel.SetActive(true);
+
         combatAnimPanel.GetComponent<Animator>().SetBool("PlayerWin", true);
     }
 
     public void PlayerLoseAnim()
     {
+        combatPanel.SetActive(false);
+        combatAnimPanel.SetActive(true);
+
         combatAnimPanel.GetComponent<Animator>().SetBool("MonsterWin", true);
     }
 
-    public void FinishCombatAnim()
+    public void InitCombatAnim()
     {
+        combatPanel.SetActive(false);
+        combatAnimPanel.SetActive(false);
+
+        combatCamera.SetActive(false);
+        mainCamera.SetActive(true);
+        MaincameraController.instance.SetPosition();
+
         combatAnimPanel.GetComponent<Animator>().SetBool("PlayerWin", false);
         combatAnimPanel.GetComponent<Animator>().SetBool("MonsterWin", false);
         combatAnimPanel.GetComponent<Animator>().SetBool("FinishCombat", true);

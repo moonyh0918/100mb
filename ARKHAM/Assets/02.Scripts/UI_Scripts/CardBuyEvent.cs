@@ -13,11 +13,10 @@ public class CardBuyEvent : MonoBehaviour {
     public List<ItemCard> Drowcard;
     public GameObject Nomoney;
     private int nowItemDeck;
-    
+
+    public GameObject mainButton;
 
     public static CardBuyEvent instance = null;
-    
-
 
     private void Awake()
     {
@@ -84,7 +83,7 @@ public class CardBuyEvent : MonoBehaviour {
             Character.instance.characterInventory.Add(Drowcard[num]);
             
             EventPanel.SetActive(false);
-            LocalEventController.instance.NextButtonSet();
+            mainButton.SetActive(true);
         }
         else
         { 
@@ -133,9 +132,6 @@ public class CardBuyEvent : MonoBehaviour {
         }
 
         EventPanel.SetActive(false);
-        LocalEventController.instance.NextButtonSet();
-
+        mainButton.SetActive(true);
     }
-
-
 }

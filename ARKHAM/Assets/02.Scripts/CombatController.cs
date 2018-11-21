@@ -7,14 +7,17 @@ public class CombatController : MonoBehaviour {
     public Character character;
     public Monster monster;
 
-    public GameObject mainCamera;
-    public GameObject combatCamera;
+    public CombatUI combatUI;
 
     public static CombatController instance = null;
-
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        combatUI = gameObject.GetComponent<CombatUI>();
     }
 
     public  void SetCombatController(Character _character, Monster _monster)
@@ -22,67 +25,53 @@ public class CombatController : MonoBehaviour {
         character = _character;
         monster = _monster;
 
-        // CobatUIPanel 변경 후 호출 
-        CombatUI.instance.SetCombatUI(monster);
-        
-        combatCamera.SetActive(true);
-        mainCamera.SetActive(false);
+        combatUI.SetCombatUI(monster);
     }
 
     public void EvasionCheck()
     {
-        Debug.Log("EvasionCheck : " + character.CharacterEvadeCheck + "(Character sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
+        combatUI.CombatUIActive(false);
 
-        CombatUI.instance.CombatUIActive(false);
-
-        //character.EvasionCheck(monster.evasionLevel);
-
-        DiceController.instance.SetDice(character.CharacterEvadeCheck + monster.evasionLevel, Character.instance.minDiceSucc, 6, DiceController.Use.EvasionCheck);
+        // 던지는 주사위 수 : 캐릭터의 EvadeCheck수치 + 몬스터의 공포레벨 / 주사위 성공값은 : 캐릭터의 minDiceSucc ~ 6 / 주사위의 용도는 공포체크  
+        DiceController.instance.SetDice(character.CharacterEvadeCheck + monster.evasionLevel, character.minDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
     public void EvasionCheckResult(int successCount)
     {
+        //회피 성공시 전투종료, 실패시 데미지를 입고 처음으로 돌아간다;
         if (successCount > monster.evasionLevel)
-        {
-            Debug.Log("회피성공");
             FinishCombat();
-        }
         else
         {
-            Debug.Log("회피체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
             character.DamagedStamina(monster.staminaDamage);
-            CombatUI.instance.UdpatePlayerUI();
+            combatUI.UdpatePlayerUI();
 
             // Damage를 입고 나서 캐릭터의 상태를 파악, 체력이 0이면 FAINT(실신)상태이므로 전투종료
-            if (Character.instance.characterState != Character.State.FAINT)
-                CombatUI.instance.CombatUIActive(true);
-            else
+            if (character.characterState == Character.State.FAINT)
                 StartCoroutine(PlayerLose());
+            else
+                combatUI.CombatUIActive(true);
         }
     }
 
     public void FearCheck()
     {
-        Debug.Log("FearCheck: " + character.HorrorCheck + "(Character Will)  +  " + monster.fearLevel + "(Monster FearLevel)");
+        combatUI.CombatUIActive(false);
 
-        // UI 변경 
-        CombatUI.instance.CombatUIActive(false);
-
-        DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, Character.instance.minDiceSucc, 6, DiceController.Use.FearCheck);     
+        DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, character.minDiceSucc, 6, DiceController.Use.FearCheck);     
     }
 
     public void FearCheckResult(int successCount)
     {
+        // 공포체크 실패, monster.sanityDamage만큼 정신피해;
         if (successCount == 0)
         {
-            Debug.Log("공포체크 실패, " + monster.sanityDamage + "만큼 정신피해를 입습니다");
             character.DamagedSanity(monster.sanityDamage);
-            CombatUI.instance.UdpatePlayerUI();
+            combatUI.UdpatePlayerUI();
         }
-        else
-            Debug.Log("공포체크 성공 ");
 
-        if (Character.instance.characterState != Character.State.FAINT)
+        // 공포체크 성공여부에 상관없이 전투체크로 넘어간다.
+        if (character.characterState != Character.State.FAINT)
             CombatCheck();
         else
             StartCoroutine(PlayerLose());
@@ -91,10 +80,6 @@ public class CombatController : MonoBehaviour {
 
     public void CombatCheck()
     {
-        Debug.Log("CombayCheck: " + character.CombatCheck + "(Character Fight)  +  " + monster.combatLevel + "(Monster combatLevel)");
-
-        // UI변경
-
         /*
         // 물리저항
 
@@ -123,19 +108,18 @@ public class CombatController : MonoBehaviour {
 
     public void CombatCheckResult(int successCount)
     {
+        // 주사위 성공수가 몬스터 체력보다 적으면, 주사위 이벤트가 성공해도 전투체크는 실패
         if (successCount >= monster.hp)
         {
             StartCoroutine(PlayerWin());
         }
         else
         {
-            Debug.Log("전투체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
-
             character.DamagedStamina(monster.staminaDamage);
-            CombatUI.instance.UdpatePlayerUI();
+            combatUI.UdpatePlayerUI();
 
             if (Character.instance.characterState != Character.State.FAINT)
-                CombatUI.instance.CombatUIActive(true);
+                combatUI.CombatUIActive(true);
             else
                 StartCoroutine(PlayerLose());
         }
@@ -144,9 +128,6 @@ public class CombatController : MonoBehaviour {
 
     private IEnumerator PlayerWin()
     {
-        CombatUI.instance.CombatUIActive(false);
-        CombatUI.instance.CombatAnimUIActive(true);
-
         // 플레이어는 전투를 통해 몬스터를 죽였다면, 몬스터HP만큼 트로피획득
         character.sumMonsterHpNum += monster.hp;
 
@@ -156,19 +137,18 @@ public class CombatController : MonoBehaviour {
         character.currentMoveCount = character.maxMoveCount;
 
         // 애니메이션이 완료 된 후 Panel 비활성화를 위해 잠시 대기 
-        CombatUI.instance.PlayerWinAnim();
+        combatUI.PlayerWinAnim();
         yield return new WaitForSeconds(3.0f);
+
         FinishCombat();
     }
 
 
     private IEnumerator PlayerLose()
     {
-        CombatUI.instance.CombatUIActive(false);
-        CombatUI.instance.CombatAnimUIActive(true);
-
-        CombatUI.instance.PlayerLoseAnim();
+        combatUI.PlayerLoseAnim();
         yield return new WaitForSeconds(3.0f);
+
         FinishCombat();
     }
 
@@ -176,18 +156,15 @@ public class CombatController : MonoBehaviour {
     {
         Character.instance.CobatComplete();
 
-        combatCamera.SetActive(false);
-        mainCamera.SetActive(true);
-        MaincameraController.instance.SetPosition();
+        combatUI.InitCombatAnim();
 
-        // UI초기화 
-        CombatUI.instance.FinishCombatAnim();
-
-        CombatUI.instance.CombatUIActive(false);
-        CombatUI.instance.CombatAnimUIActive(false);
-
-        // 전투 종료 후 차원문의 콜라이더 컴포넌트를 활성화 할지 결정 (만약 몬스터가 더 있다면 계속 전투 해야 하므로 차원문의 콜라이더는 꺼져있어야한다.)
+        // 전투 종료 후 차원문의 콜라이더를 활성화 여부 체크 (만약 몬스터가 더 있다면 계속 전투 해야 하므로 차원문의 콜라이더는 꺼져있어야한다.)
         Local combatLocal = Local.GetLocalObjById(character.currentLocal_Id);
-        combatLocal.GetComponentInChildren<Gate>().GateColliderAct();   //널값참조남
+
+        Gate openGate = combatLocal.GetComponentInChildren<Gate>();  
+        if(openGate != null)
+        {
+            openGate.GateColliderAct();
+        }
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-// 이동은 남에게 부탁할시 여러개가 동시에 움직여야한다면 배열로 전달해서 한번씩돌아가면서 movetowards 하던가
-// 왠만하면 이동은 움직이는대상스크립트에 넣어서 인스턴스되어 각자 스스로 움직이게 되게하자 
 public class MonsterController : MonoBehaviour {
     
     public Monster monsterPrefab;
@@ -25,6 +23,7 @@ public class MonsterController : MonoBehaviour {
 
     public void CreateMonster(Local local)
     {
+        // 생성할 몬스터의 정보를 Dictionary에서 랜덤하게 하나를 가져온다.
         Monster dictionaryMon = MonsterDictionary.instance.RandomMonster();
 
         // 몬스터가 필드에 4마리가 있다면 다음 몬스터는 외각에 UI형태로 생성, 오브젝트를 생성하지 않음
@@ -40,10 +39,10 @@ public class MonsterController : MonoBehaviour {
         instanceMon.transform.localPosition = new Vector3(0, -1, 1);
         instanceMon.transform.position = new Vector3(instanceMon.transform.position.x, 1.2f, instanceMon.transform.position.z);
 
+        // 생성한 객체의 Monster컴포넌트 값에 처음 가져온 Dictionary값을 대입
         instanceMon.CopyValue(ref dictionaryMon);
         instanceMon.name = instanceMon.name + number;
 
-        // 이미지를 Resources파일에서 가져옴
         Texture monsterTexture = Resources.Load<Texture>("MonsterImages/" + instanceMon.id);
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;
 
@@ -57,28 +56,23 @@ public class MonsterController : MonoBehaviour {
     {
         for (int k = 0; k < simbol.Count; k++)
         {
-            //Debug.Log("Simbol : " + simbol[k] + "   Color : " + color);
-
             for (int i = 0; i < monsters.Count; i++)
             {
 
                 if (monsters[i].simbol == simbol[k])
                 {
-                    //Debug.Log(monsters[i] + " is move Start");
-
-                    MonsterMoveController moveCtrl = monsters[i].GetComponent<MonsterMoveController>();
-
                     // 카메라 focus 몬스터에게 이동 
                     MaincameraController.instance.ChangeTarget(monsters[i].gameObject);
 
+                    MonsterMoveController moveCtrl = monsters[i].GetComponent<MonsterMoveController>();
+
                     IEnumerator coroutine = moveCtrl.MoveEachType(color);
-                    yield return StartCoroutine(coroutine);
-                    
-                    MaincameraController.instance.ChangeTarget(FindObjectOfType<Character>().gameObject);
-                    Debug.Log(monsters[i] + " is move finished");
+                    yield return StartCoroutine(coroutine);                    
                 }
             }
         }
+
+        MaincameraController.instance.ChangeTarget(FindObjectOfType<Character>().gameObject);
         yield return null;
     }
 

@@ -25,6 +25,8 @@ public class DiceController : MonoBehaviour
     public GameObject mainCamera;
     public GameObject combatCamera;
 
+    public GameObject pressText;
+
     public static DiceController instance = null;
 
     private void Awake()
@@ -53,6 +55,8 @@ public class DiceController : MonoBehaviour
 
     public void SetDice(int num, int min, int max, Use _use)
     {
+        pressText.SetActive(true);
+
         use = _use;
 
         diceCount = num;
@@ -87,6 +91,8 @@ public class DiceController : MonoBehaviour
 
     public void SetDiceThrow(Local local, int num, int min, int max)
     {
+        pressText.SetActive(true);
+
         use = Use.LocalEventCheck;
 
         eventLocal = local;
@@ -118,6 +124,8 @@ public class DiceController : MonoBehaviour
 
     public void SetDice(Mythos mythos, int num, int min, int max)
     {
+        pressText.SetActive(true);
+
         use = Use.MythosEvent;
 
         eventMythos = mythos;
@@ -214,6 +222,8 @@ public class DiceController : MonoBehaviour
                 FinalBattle.instance.AttackResult(successCoutn);
                 break;
         }
+
+        pressText.SetActive(false);
     }
 
     // 인자로 성공 범위를 받아, 성공한 주사위 수 반환  

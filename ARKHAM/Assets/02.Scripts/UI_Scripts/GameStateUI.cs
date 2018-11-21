@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class GameStateUI : MonoBehaviour {
 
+    public GameObject gameStatePanel;
     public Image background;
     public Text stateText;
     public bool skip;
 
+    public static GameStateUI instance;
+
+    private void Awake()
+    {
+        instance = this;
+        gameStatePanel = transform.Find("GameState").gameObject;
+        background = gameStatePanel.transform.Find("Background").GetComponent<Image>();
+        stateText = gameStatePanel.GetComponentInChildren<Text>();
+    }
+
     public void UpdateStateUI(string state)
     {
+        gameStatePanel.SetActive(true);
+
         skip = true;
         UIInit();
 
@@ -41,7 +54,7 @@ public class GameStateUI : MonoBehaviour {
             }
         }
 
-        gameObject.SetActive(false);
+        gameStatePanel.SetActive(false);
     }
 
     private void UIInit()

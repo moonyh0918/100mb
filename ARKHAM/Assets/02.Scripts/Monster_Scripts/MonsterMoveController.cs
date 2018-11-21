@@ -57,13 +57,11 @@ public class MonsterMoveController : MonoBehaviour {
             else
                 goalLocal = Local.GetLocalObjById(currentLocal.blackPath_id);
         }
-
         IEnumerator moveCoroutine = MovePosition(goalLocal.position);
         yield return StartCoroutine(moveCoroutine);
       
-        Debug.Log(monster + "(" + color + ")" + " : " + currentLocal + "to" + goalLocal);
-
-        
+        //Debug.Log(monster + "(" + color + ")" + " : " + currentLocal + "to" + goalLocal);
+  
         yield return null;
     }
 

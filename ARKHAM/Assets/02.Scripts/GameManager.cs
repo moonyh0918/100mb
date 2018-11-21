@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour {
     public enum GameState {Setting,Upkeep, Move, Encounter, Mythos, finalbattle}
     public GameState gameState;
 
-    public GameStateUI gameSateUI;
-
     public static GameManager instance = null;
    
 
@@ -36,7 +34,7 @@ public class GameManager : MonoBehaviour {
     {
         gameState = GameState.Setting;
         //RandomBoss();
-        SettingController.instance.SheetSetting();    
+        SettingController.instance.SheetSetting();
     }
 
 
@@ -86,8 +84,7 @@ public class GameManager : MonoBehaviour {
     {
         NowPhase.instance.PopNowPhase();
         gameState = GameState.Mythos;
-        gameSateUI.gameObject.SetActive(true);
-        gameSateUI.UpdateStateUI("신 화 단 계");
+        GameStateUI.instance.UpdateStateUI("신 화 단 계");
 
         SettingController.instance.EndSetting();
     }
@@ -100,8 +97,7 @@ public class GameManager : MonoBehaviour {
         MythosController.instance.MythosStateEnd();
    
         gameState = GameState.Upkeep;
-        gameSateUI.gameObject.SetActive(true);
-        gameSateUI.UpdateStateUI("유 지 단 계");
+        GameStateUI.instance.UpdateStateUI("유 지 단 계");
 
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
         UpkeepButtonEvent.instance.retainerAndBless();
@@ -113,8 +109,7 @@ public class GameManager : MonoBehaviour {
         NowPhase.instance.PopNowPhase();
 
         gameState = GameState.Move;
-        gameSateUI.gameObject.SetActive(true);
-        gameSateUI.UpdateStateUI("이 동 단 계");
+        GameStateUI.instance.UpdateStateUI("이 동 단 계");
 
         UpkeepButtonEvent.instance.UpkeepStepEnd();
         MoveController.instance.CheckOtherWorld();
@@ -129,8 +124,7 @@ public class GameManager : MonoBehaviour {
         NowPhase.instance.PopNowPhase();
 
         gameState = GameState.Encounter;
-        gameSateUI.gameObject.SetActive(true);
-        gameSateUI.UpdateStateUI("조 우 단 계");
+        GameStateUI.instance.UpdateStateUI("조 우 단 계");
 
         LocalEventController.instance.LocalEnCounterStep();
     }
@@ -143,8 +137,7 @@ public class GameManager : MonoBehaviour {
         LocalEventController.instance.ExitEvent();
         
         gameState = GameState.Mythos;
-        gameSateUI.gameObject.SetActive(true);
-        gameSateUI.UpdateStateUI("신 화 단 계");
+        GameStateUI.instance.UpdateStateUI("신 화 단 계");
 
         MythosController.instance.MythosStep();
 

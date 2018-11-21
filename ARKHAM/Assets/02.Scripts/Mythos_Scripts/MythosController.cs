@@ -16,20 +16,19 @@ public class MythosController : MonoBehaviour {
     public GameObject clue;
 
     Vector3 currentPosition;
-    
+
+    public GameObject mainButton;
 
     public static MythosController instance = null;
 
     void Awake()
     {
         instance = this;
-        mythosDeck = FindObjectOfType<MythosDeck>();
     }
 
     private void Start()
     {
-        //참조값 없길레 Awake로 옮김
-       // mythosDeck = FindObjectOfType<MythosDeck>();
+        mythosDeck = FindObjectOfType<MythosDeck>();
     }
 
 
@@ -73,6 +72,9 @@ public class MythosController : MonoBehaviour {
 
     IEnumerator MythosStepCoroutine()
     {
+        mainButton.SetActive(false);
+        yield return new WaitForSeconds(0.8f);
+
         pulledMythos = mythosDeck.DrawCard();
 
         mythosImage.sprite = Resources.Load<Sprite>("MythosImages/" + pulledMythos.title);
@@ -83,33 +85,44 @@ public class MythosController : MonoBehaviour {
 
         // 카드 좌측 상단으로 이동 애니메이션 
         eventCard.GetComponent<Animator>().SetBool("Flip", true);
+        yield return new WaitForSeconds(1.5f);
 
-        // 차원문 생성 
+        // 1. 차원문 생성 
+        GameStateUI.instance.UpdateStateUI("차원문 생성");
         GateController.instance.OpenGate(pulledMythos.gateLocal.name);
-
-        // 몬스터 생성
+        // 2. 몬스터 생성
         MonsterController.instance.CreateMonster(pulledMythos.gateLocal);
 
-        // 단서 생성
+        MaincameraController.instance.ChangeTarget(pulledMythos.gateLocal.gameObject);
+        yield return new WaitForSeconds(2.0f);
+
+        // 3. 단서 생성
+        GameStateUI.instance.UpdateStateUI("단서 생성");
         clue = Instantiate(cluePrefab, pulledMythos.clueLocal.transform);
         clue.transform.localPosition = new Vector3(0.18f, 2.3f, 0.75f);
 
-        // 몬스터 이동 
-  
+        MaincameraController.instance.ChangeTarget(pulledMythos.clueLocal.gameObject);
+        yield return new WaitForSeconds(2.0f);
+        
+        // 4. 몬스터 이동
         IEnumerator coroutine = MonsterController.instance.MoveOneByOne(pulledMythos.whiteSimbol, MonsterMoveController.Color.White);
         yield return StartCoroutine(coroutine);
     
-
         coroutine = MonsterController.instance.MoveOneByOne(pulledMythos.blackSimbol, MonsterMoveController.Color.Black);
         yield return StartCoroutine(coroutine);
 
         eventCard.GetComponent<Animator>().SetBool("Flip", false);
 
+        // 5. 이벤트 발생
         pulledMythos.OccurEvent();
+
+        mainButton.SetActive(true);
     }
 
     public void MythosStateEnd()
     {
+        MaincameraController.instance.ChangeTarget(FindObjectOfType<Character>().gameObject);
+
         eventCard.GetComponent<Animator>().SetBool("Reset", true);
         mythosPanel.SetActive(false);
 

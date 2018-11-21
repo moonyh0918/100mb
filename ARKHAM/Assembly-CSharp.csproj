@@ -65,9 +65,13 @@
     <Compile Include="Assets\02.Scripts\Boss_Scripts\Boss.cs" />
     <Compile Include="Assets\02.Scripts\Boss_Scripts\Cthulhu.cs" />
     <Compile Include="Assets\02.Scripts\Boss_Scripts\Yig.cs" />
+    <Compile Include="Assets\02.Scripts\BossAattackEvasion.cs" />
+    <Compile Include="Assets\02.Scripts\BossHPScore.cs" />
     <Compile Include="Assets\02.Scripts\CameraMoveZone.cs" />
     <Compile Include="Assets\02.Scripts\Character.cs" />
+    <Compile Include="Assets\02.Scripts\CharacterBasic.cs" />
     <Compile Include="Assets\02.Scripts\Clue.cs" />
+    <Compile Include="Assets\02.Scripts\ClueRotate.cs" />
     <Compile Include="Assets\02.Scripts\CombatController.cs" />
     <Compile Include="Assets\02.Scripts\FinalBattle.cs" />
     <Compile Include="Assets\02.Scripts\GameManager.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="Assets\02.Scripts\Item_Scripts\weapon_18Derringer.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\weapon_Cross.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\weapon_TommyGun.cs" />
+    <Compile Include="Assets\02.Scripts\ItemClickEvent.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Administration.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Asylum.cs" />
@@ -145,6 +150,12 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\BasicScore.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\ClueScore.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\GateTrophyScore.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\MonsterHPScore.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\ScoreSetting.cs" />
+    <Compile Include="Assets\02.Scripts\Score_Scripts\TotalScore.cs" />
     <Compile Include="Assets\02.Scripts\SettingController.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\GameStart.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\SelectBoss.cs" />
@@ -158,13 +169,13 @@
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_RiverTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_SouthSide.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_UpTown.cs" />
-    <Compile Include="Assets\02.Scripts\UI_Scripts\AllMenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\AnotherWorldUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossCombatCheck.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossCombatRating.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossDefense.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossHP.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\BossNameText.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\ButtonUIActive.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfMagic.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\CharacterpowerOfWeapon.cs" />
@@ -185,12 +196,6 @@
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SpreadEventCard.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\TerrorLevel.cs" />
-    <Compile Include="Assets\BasicScore.cs" />
-    <Compile Include="Assets\BossAattackEvasion.cs" />
-    <Compile Include="Assets\BossHPScore.cs" />
-    <Compile Include="Assets\CharacterBasic.cs" />
-    <Compile Include="Assets\ClueRotate.cs" />
-    <Compile Include="Assets\ClueScore.cs" />
     <Compile Include="Assets\Functions\AnotherWorld\Scripts\RotationGate.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\Dice.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\DiceController.cs" />
@@ -199,22 +204,17 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
-    <Compile Include="Assets\GateTrophyScore.cs" />
-    <Compile Include="Assets\ItemClickEvent.cs" />
-    <Compile Include="Assets\MonsterHPScore.cs" />
-    <Compile Include="Assets\ScoreSetting.cs" />
-    <Compile Include="Assets\TotalScore.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -415,10 +415,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/wlstj/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/wlstj/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
